@@ -38,7 +38,7 @@ export default {
   name: 'Level',
   data: () => ({
     appTitle: 'Task Planner',
-    userToken: 'bk11h@my.fsu.edu',
+    userToken: '',
     gameLevel: '',
     actions: [],
   }),
