@@ -8,7 +8,7 @@
       overlap
       bordered
     >
-      <div class="pa-3 flex-grow-1">
+      <div class="pa-1 flex-grow-1">
         <div class="d-flex align-center flex-column">
           <v-avatar small size="120">
             <v-img :src="image" :alt="name" />
@@ -33,7 +33,7 @@
           :color="color"
           @click="reveal = true"
         >
-          Learn More
+          <slot name="button">Learn More</slot>
         </v-btn>
       </div>
     </template>
@@ -51,7 +51,7 @@
           offset-y="30"
           overlap
         >
-          <div class="pa-3 flex-grow-1">
+          <div class="pa-1 flex-grow-1">
             <div class="d-flex align-center flex-column">
               <v-avatar small size="72">
                 <v-img :src="image" :alt="name" />

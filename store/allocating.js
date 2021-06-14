@@ -7,6 +7,7 @@ export const state = () => ({
   ],
   occupants: [],
   dwellings: [],
+  tabs: [],
 })
 
 export const getters = {
@@ -18,30 +19,6 @@ export const getters = {
   },
   getLevel(state) {
     return state.level
-  },
-  getTabs(state, getters, rootState) {
-    return [
-      {
-        name: 'Space Needed',
-        to: `/${rootState.level}/allocating/space-needed`,
-        checked: false,
-      },
-      {
-        name: 'Space Provided',
-        to: `/${rootState.level}/allocating/space-provided`,
-        checked: false,
-      },
-      {
-        name: 'Space Comparison',
-        to: `/${rootState.level}/allocating/space-comparison`,
-        checked: false,
-      },
-      {
-        name: 'Practice',
-        to: `/${rootState.level}/allocating/allocating-practice`,
-        checked: false,
-      },
-    ]
   },
   getOccupants(state) {
     return state.occupants
@@ -88,15 +65,17 @@ export const getters = {
 }
 
 export const mutations = {
-  checkPhase(state, { phaseIndex }) {
-    const phases = state.phases
-    phases[phaseIndex].checked = true
+  checkPhase(state, phaseIndex) {
+    state.tabs[phaseIndex].checked = true
   },
   setOccupants(state, data) {
     state.occupants = data
   },
   setDwellings(state, data) {
     state.dwellings = data
+  },
+  setTabs(state, data) {
+    state.tabs = data
   },
   checkOccupant(state, occupantIndex) {
     state.occupants[occupantIndex].checked = true
@@ -129,9 +108,12 @@ export const mutations = {
     if (result) {
       occupant.checked = true
     }
-    // const completed = state.list.every((person) => {
-    //   return person.checked
-    // })
+    const completed = state.occupants.every((person) => {
+      return person.checked
+    })
+    if (completed) {
+      state.tabs[0].checked = true
+    }
   },
   checkMathValues(state, { dwellingIndex, valueKey }) {
     const dwelling = state.dwellings[dwellingIndex]
@@ -150,6 +132,12 @@ export const mutations = {
     })
     if (result) {
       dwelling.checked = true
+    }
+    const completed = state.dwellings.every((item) => {
+      return item.checked
+    })
+    if (completed) {
+      state.tabs[1].checked = true
     }
   },
 }

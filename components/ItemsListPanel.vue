@@ -42,7 +42,11 @@
           small
         >
           {{ sub.name.toUpperCase() }}
-          {{ sub.properties.unitSpace.value }}
+          <template v-if="sub.properties.unitSpace.checked">
+            {{ sub.properties.unitSpace.value }}
+          </template>
+          <template v-else> ? </template>
+          &nbsp;
           <span
             v-if="sub.properties.unitSpace.measuringUnit"
             class="denser-letters"
@@ -59,7 +63,10 @@
         </v-chip>
         <v-icon :class="{ 'order-2': reverse }" size="small">mdi-equal</v-icon>
         <v-chip class="px-1" :class="{ 'order-1': reverse }" label small>
-          {{ sub.properties.count.value * sub.properties.count.value }}
+          <template v-if="sub.checked">
+            {{ sub.properties.unitSpace.value * sub.properties.count.value }}
+          </template>
+          <template v-else>?</template>
         </v-chip>
       </div>
     </div>
@@ -84,7 +91,10 @@
           label
           small
         >
-          {{ properties.unitSpace.value }}
+          <template v-if="properties.unitSpace.checked">
+            {{ properties.unitSpace.value }}
+          </template>
+          <template v-else>?</template>
           <span
             v-if="properties.unitSpace.measuringUnit"
             class="denser-letters mx-1"
@@ -101,7 +111,10 @@
           :class="{ 'order-3': reverse }"
           small
         >
-          {{ properties.count.value }}
+          <template v-if="properties.count.checked">
+            {{ properties.count.value }}
+          </template>
+          <template v-else>?</template>
         </v-chip>
         <v-icon :class="{ 'order-2': reverse }" size="small">mdi-equal</v-icon>
         <v-chip
@@ -110,7 +123,10 @@
           :color="hexColor"
           text-color="white"
         >
-          {{ properties.totalSpace.value }}
+          <template v-if="properties.totalSpace.checked">
+            {{ properties.totalSpace.value }}
+          </template>
+          <template v-else>?</template>
           <span
             v-if="properties.totalSpace.measuringUnit"
             class="denser-letters mx-1"

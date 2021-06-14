@@ -6,26 +6,151 @@ export const state = () => ({
       id: 3,
       name: 'IslandBuild01',
       actions: ['building', 'collecting', 'trading'],
+      collectibles: [
+        {
+          name: 'shipping container',
+          type: 'prefab building',
+          prompting: 'What is the floor space of this shipping container?',
+          properties: {
+            length: {
+              name: 'length',
+              value: 6,
+              measuringUnit: 'm',
+            },
+            width: {
+              name: 'width',
+              value: 3,
+              measuringUnit: 'm',
+            },
+            area: {
+              name: 'area',
+              alias: 'floor space',
+              value: 18,
+              measuringUnit: 'm2',
+            },
+          },
+        },
+      ],
     },
     {
       id: 4,
       name: 'IslandBuild02',
       actions: ['building', 'collecting', 'trading'],
+      collectibles: [
+        {
+          name: 'shipping container',
+          type: 'prefab building',
+          prompting: 'What is the floor space of this shipping container?',
+          properties: {
+            length: {
+              name: 'length',
+              value: 8,
+              measuringUnit: 'm',
+            },
+            width: {
+              name: 'width',
+              value: 5,
+              measuringUnit: 'm',
+            },
+            area: {
+              name: 'area',
+              alias: 'floor space',
+              value: 40,
+              measuringUnit: 'm2',
+            },
+          },
+        },
+      ],
     },
     {
       id: 5,
       name: 'DesertBuild01',
       actions: ['building', 'collecting', 'trading'],
+      collectibles: [
+        {
+          name: 'clay block',
+          type: 'building block',
+          prompting: 'How many clay blocks are required for a 4X6 meter wall?',
+          properties: {
+            area: {
+              name: 'area of a block',
+              value: 4,
+              measuringUnit: 'm2',
+            },
+            count: {
+              name: 'no. of blocks',
+              value: 6,
+              measuringUnit: '',
+            },
+            target: {
+              type: 'area',
+              name: '4X6 meter wall',
+              value: 24,
+              measuringUnit: 'm2',
+            },
+          },
+        },
+      ],
     },
     {
       id: 6,
       name: 'DesertBuild02',
       actions: ['building', 'collecting', 'trading'],
+      collectibles: [
+        {
+          name: 'clay block',
+          type: 'building block',
+          prompting: 'How many clay blocks are required for a 4X6 meter wall?',
+          properties: {
+            area: {
+              name: 'area',
+              value: 4,
+              measuringUnit: 'm2',
+            },
+            count: {
+              name: 'no. of blocks',
+              value: 6,
+              measuringUnit: '',
+            },
+            target: {
+              type: 'area',
+              name: '4X6 meter wall',
+              value: 24,
+              measuringUnit: 'm2',
+            },
+          },
+        },
+      ],
     },
     {
       id: 7,
       name: 'DesertBuild03',
       actions: ['building', 'collecting', 'trading'],
+      collectibles: [
+        {
+          name: 'clay block',
+          type: 'building block',
+          prompting: 'How many clay blocks are required for a 4X6 meter wall?',
+          properties: {
+            area: {
+              name: 'area',
+              value: 4,
+              measuringUnit: 'm2',
+            },
+            count: {
+              name: 'no. of blocks',
+              value: 6,
+              measuringUnit: '',
+            },
+            target: {
+              type: 'area',
+              name: '4X6 meter wall',
+              value: 24,
+              measuringUnit: 'm2',
+            },
+          },
+        },
+      ],
     },
     { id: 8, name: 'DesertCopy01', actions: ['building', 'trading'] },
     { id: 9, name: 'DesertCopy02', actions: ['building', 'trading'] },
@@ -168,6 +293,212 @@ export const state = () => ({
           },
         },
       ],
+      collectibles: [
+        {
+          name: '1/1 Family',
+          type: 'group',
+          prompting: 'What is the total size of this family in square meters?',
+          properties: {
+            unitSpace: {
+              name: 'unit space',
+              alias: 'total size',
+              value: 6,
+              measuringUnit: 'm2',
+            },
+          },
+          members: [
+            {
+              name: 'adult',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 1,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 4,
+                  ratio: 2,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+            {
+              name: 'child',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 1,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 2,
+                  ratio: 1,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+          ],
+        },
+        {
+          name: '1/2 Family',
+          type: 'group',
+          prompting: 'What is the total size of this family in square meters?',
+          properties: {
+            unitSpace: {
+              name: 'unit space',
+              alias: 'total size',
+              value: 8,
+              measuringUnit: 'm2',
+            },
+          },
+          members: [
+            {
+              name: 'adult',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 1,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 4,
+                  ratio: 2,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+            {
+              name: 'child',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 2,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 2,
+                  ratio: 1,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+          ],
+        },
+        {
+          name: '2/1 Family',
+          type: 'group',
+          prompting: 'What is the total size of this family in square meters?',
+          properties: {
+            unitSpace: {
+              name: 'unit space',
+              alias: 'total size',
+              value: 10,
+              measuringUnit: 'm2',
+            },
+          },
+          members: [
+            {
+              name: 'adult',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 2,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 4,
+                  ratio: 2,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+            {
+              name: 'child',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 1,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 2,
+                  ratio: 1,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+          ],
+        },
+        {
+          name: '2/2 Family',
+          type: 'group',
+          prompting: 'What is the total size of this family in square meters?',
+          properties: {
+            unitSpace: {
+              name: 'unit space',
+              alias: 'total size',
+              value: 12,
+              measuringUnit: 'm2',
+            },
+          },
+          members: [
+            {
+              name: 'adult',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 2,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 4,
+                  ratio: 2,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+            {
+              name: 'child',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 2,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 2,
+                  ratio: 1,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+          ],
+        },
+      ],
     },
     { id: 11, name: 'DesertPlacement01', actions: ['placing'] },
     { id: 12, name: 'FarmAngle01', actions: ['placing'] },
@@ -175,16 +506,116 @@ export const state = () => ({
       id: 13,
       name: 'FarmArea01',
       actions: ['collecting', 'placing', 'trading'],
+      collectibles: [
+        {
+          name: 'short fence',
+          prompting:
+            'How many fence pieces will you need for a square with a perimeter of 12 meter?',
+          type: 'fence',
+          properties: {
+            length: {
+              name: 'length',
+              value: 5,
+              measuringUnit: 'm',
+            },
+            count: {
+              name: 'no. of fences',
+              value: 3,
+              measuringUnit: '',
+            },
+            target: {
+              type: 'perimeter',
+              name: 'square',
+              value: 12,
+              measuringUnit: 'm',
+            },
+          },
+        },
+        {
+          name: 'long fence',
+          prompting:
+            'How many fence pieces will you need for a square with a perimeter of 40 meter?',
+          type: 'fence',
+          properties: {
+            length: {
+              name: 'length',
+              value: 10,
+              measuringUnit: 'm',
+            },
+            count: {
+              name: 'no. of fences',
+              value: 4,
+              measuringUnit: '',
+            },
+            target: {
+              type: 'perimeter',
+              name: 'square',
+              value: 40,
+              measuringUnit: 'm',
+            },
+          },
+        },
+      ],
     },
     {
       id: 14,
       name: 'FarmPerimeter01',
       actions: ['collecting', 'placing', 'trading'],
+      collectibles: [
+        {
+          name: 'short fence',
+          prompting:
+            'How many fence pieces will you need for a square with a perimeter of 12 meter?',
+          type: 'fence',
+          properties: {
+            length: {
+              name: 'length',
+              value: 5,
+              measuringUnit: 'm',
+            },
+            count: {
+              name: 'no. of fences',
+              value: 3,
+              measuringUnit: '',
+            },
+            target: {
+              type: 'perimeter',
+              name: 'square',
+              value: 12,
+              measuringUnit: 'm',
+            },
+          },
+        },
+        {
+          name: 'long fence',
+          prompting:
+            'How many fence pieces will you need for a square with a perimeter of 40 meter?',
+          type: 'fence',
+          properties: {
+            length: {
+              name: 'length',
+              value: 10,
+              measuringUnit: 'm',
+            },
+            count: {
+              name: 'no. of fences',
+              value: 4,
+              measuringUnit: '',
+            },
+            target: {
+              type: 'perimeter',
+              name: 'square',
+              value: 40,
+              measuringUnit: 'm',
+            },
+          },
+        },
+      ],
     },
     {
       id: 15,
       name: 'FarmTile01',
-      actions: ['collecting', 'covering', 'trading'],
+      actions: ['covering', 'trading'],
     },
     {
       id: 16,
@@ -218,19 +649,775 @@ export const state = () => ({
           },
         },
       ],
+      collectibles: [
+        {
+          name: 'fish',
+          prompting: 'How much space does this fish need?',
+          type: 'individual',
+          properties: {
+            unitSpace: {
+              name: 'unit space',
+              value: 1,
+              measuringUnit: 'm3',
+            },
+          },
+        },
+      ],
     },
     {
       id: 17,
       name: 'IslandBuild03',
       actions: ['building', 'collecting', 'trading'],
+      collectibles: [
+        {
+          name: 'shipping container',
+          type: 'prefab building',
+          prompting: 'What is the floor space of this shipping container?',
+          properties: {
+            length: {
+              name: 'length',
+              value: 8,
+              measuringUnit: 'm',
+            },
+            width: {
+              name: 'width',
+              value: 5,
+              measuringUnit: 'm',
+            },
+            area: {
+              name: 'area',
+              alias: 'floor space',
+              value: 40,
+              measuringUnit: 'm2',
+            },
+          },
+        },
+      ],
     },
     { id: 18, name: 'IslandBuildTraining01', actions: [] },
-    { id: 19, name: 'IslandCollect01', actions: ['collecting'] },
-    { id: 20, name: 'IslandCollect02', actions: ['collecting'] },
-    { id: 21, name: 'IslandCollect03', actions: ['collecting'] },
-    { id: 22, name: 'IslandCollect04', actions: ['collecting'] },
-    { id: 23, name: 'IslandCollect05', actions: ['collecting'] },
-    { id: 24, name: 'IslandCollect06', actions: ['collecting'] },
+    {
+      id: 19,
+      name: 'IslandCollect01',
+      actions: ['collecting'],
+      collectibles: [
+        {
+          name: 'shipping container',
+          type: 'prefab building',
+          prompting: 'What is the floor space of this shipping container?',
+          properties: {
+            length: {
+              name: 'length',
+              value: 6,
+              measuringUnit: 'm',
+            },
+            width: {
+              name: 'width',
+              value: 3,
+              measuringUnit: 'm',
+            },
+            area: {
+              name: 'area',
+              alias: 'floor space',
+              value: 18,
+              measuringUnit: 'm2',
+            },
+          },
+        },
+      ],
+    },
+    {
+      id: 20,
+      name: 'IslandCollect02',
+      actions: ['collecting'],
+      collectibles: [
+        {
+          name: '1/1 Family',
+          type: 'group',
+          prompting: 'What is the total size of this family in square meters?',
+          properties: {
+            unitSpace: {
+              name: 'unit space',
+              alias: 'total size',
+              value: 6,
+              measuringUnit: 'm2',
+            },
+          },
+          members: [
+            {
+              name: 'adult',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 1,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 4,
+                  ratio: 2,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+            {
+              name: 'child',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 1,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 2,
+                  ratio: 1,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+          ],
+        },
+        {
+          name: '1/2 Family',
+          type: 'group',
+          prompting: 'What is the total size of this family in square meters?',
+          properties: {
+            unitSpace: {
+              name: 'unit space',
+              alias: 'total size',
+              value: 8,
+              measuringUnit: 'm2',
+            },
+          },
+          members: [
+            {
+              name: 'adult',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 1,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 4,
+                  ratio: 2,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+            {
+              name: 'child',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 2,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 2,
+                  ratio: 1,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+          ],
+        },
+        {
+          name: '2/1 Family',
+          type: 'group',
+          prompting: 'What is the total size of this family in square meters?',
+          properties: {
+            unitSpace: {
+              name: 'unit space',
+              alias: 'total size',
+              value: 10,
+              measuringUnit: 'm2',
+            },
+          },
+          members: [
+            {
+              name: 'adult',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 2,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 4,
+                  ratio: 2,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+            {
+              name: 'child',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 1,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 2,
+                  ratio: 1,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+          ],
+        },
+        {
+          name: '2/2 Family',
+          type: 'group',
+          prompting: 'What is the total size of this family in square meters?',
+          properties: {
+            unitSpace: {
+              name: 'unit space',
+              alias: 'total size',
+              value: 12,
+              measuringUnit: 'm2',
+            },
+          },
+          members: [
+            {
+              name: 'adult',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 2,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 4,
+                  ratio: 2,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+            {
+              name: 'child',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 2,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 2,
+                  ratio: 1,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 21,
+      name: 'IslandCollect03',
+      actions: ['collecting'],
+      collectibles: [
+        {
+          name: 'shipping container',
+          type: 'prefab building',
+          prompting: 'What is the floor space of this shipping container?',
+          properties: {
+            length: {
+              name: 'length',
+              value: 8,
+              measuringUnit: 'm',
+            },
+            width: {
+              name: 'width',
+              value: 5,
+              measuringUnit: 'm',
+            },
+            area: {
+              name: 'area',
+              alias: 'floor space',
+              value: 40,
+              measuringUnit: 'm2',
+            },
+          },
+        },
+      ],
+    },
+    {
+      id: 22,
+      name: 'IslandCollect04',
+      actions: ['collecting'],
+      collectibles: [
+        {
+          name: '1/1 Family',
+          type: 'group',
+          prompting: 'What is the total size of this family in square meters?',
+          properties: {
+            unitSpace: {
+              name: 'unit space',
+              alias: 'total size',
+              value: 10,
+              measuringUnit: 'm2',
+            },
+          },
+          members: [
+            {
+              name: 'adult',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 1,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 6,
+                  ratio: 3,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+            {
+              name: 'child',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 1,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 4,
+                  ratio: 2,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+          ],
+        },
+        {
+          name: '1/2 Family',
+          type: 'group',
+          prompting: 'What is the total size of this family in square meters?',
+          properties: {
+            unitSpace: {
+              name: 'unit space',
+              alias: 'total size',
+              value: 14,
+              measuringUnit: 'm2',
+            },
+          },
+          members: [
+            {
+              name: 'adult',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 1,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 6,
+                  ratio: 3,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+            {
+              name: 'child',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 2,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 4,
+                  ratio: 2,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+          ],
+        },
+        {
+          name: '2/1 Family',
+          type: 'group',
+          prompting: 'What is the total size of this family in square meters?',
+          properties: {
+            unitSpace: {
+              name: 'unit space',
+              alias: 'total size',
+              value: 16,
+              measuringUnit: 'm2',
+            },
+          },
+          members: [
+            {
+              name: 'adult',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 2,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 6,
+                  ratio: 3,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+            {
+              name: 'child',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 1,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 4,
+                  ratio: 2,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+          ],
+        },
+        {
+          name: '2/2 Family',
+          type: 'group',
+          prompting: 'What is the total size of this family in square meters?',
+          properties: {
+            unitSpace: {
+              name: 'unit space',
+              alias: 'total size',
+              value: 20,
+              measuringUnit: 'm2',
+            },
+          },
+          members: [
+            {
+              name: 'adult',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 2,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 6,
+                  ratio: 3,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+            {
+              name: 'child',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 2,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 4,
+                  ratio: 2,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 23,
+      name: 'IslandCollect05',
+      actions: ['collecting'],
+      collectibles: [
+        {
+          name: 'shipping container',
+          type: 'prefab building',
+          prompting: 'What is the floor space of this shipping container?',
+          properties: {
+            length: {
+              name: 'length',
+              value: 8,
+              measuringUnit: 'm',
+            },
+            width: {
+              name: 'width',
+              value: 5,
+              measuringUnit: 'm',
+            },
+            area: {
+              name: 'area',
+              alias: 'floor space',
+              value: 40,
+              measuringUnit: 'm2',
+            },
+          },
+        },
+      ],
+    },
+    {
+      id: 24,
+      name: 'IslandCollect06',
+      actions: ['collecting'],
+      collectibles: [
+        {
+          name: '1/1 Family',
+          type: 'group',
+          prompting: 'What is the total size of this family in square meters?',
+          properties: {
+            unitSpace: {
+              name: 'unit space',
+              alias: 'total size',
+              value: 10,
+              measuringUnit: 'm2',
+            },
+          },
+          members: [
+            {
+              name: 'adult',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 1,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 6,
+                  ratio: 3,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+            {
+              name: 'child',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 1,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 4,
+                  ratio: 2,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+          ],
+        },
+        {
+          name: '1/2 Family',
+          type: 'group',
+          prompting: 'What is the total size of this family in square meters?',
+          properties: {
+            unitSpace: {
+              name: 'unit space',
+              alias: 'total size',
+              value: 14,
+              measuringUnit: 'm2',
+            },
+          },
+          members: [
+            {
+              name: 'adult',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 1,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 6,
+                  ratio: 3,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+            {
+              name: 'child',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 2,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 4,
+                  ratio: 2,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+          ],
+        },
+        {
+          name: '2/1 Family',
+          type: 'group',
+          prompting: 'What is the total size of this family in square meters?',
+          properties: {
+            unitSpace: {
+              name: 'unit space',
+              alias: 'total size',
+              value: 16,
+              measuringUnit: 'm2',
+            },
+          },
+          members: [
+            {
+              name: 'adult',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 2,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 6,
+                  ratio: 3,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+            {
+              name: 'child',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 1,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 4,
+                  ratio: 2,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+          ],
+        },
+        {
+          name: '2/2 Family',
+          type: 'group',
+          prompting: 'What is the total size of this family in square meters?',
+          properties: {
+            unitSpace: {
+              name: 'unit space',
+              alias: 'total size',
+              value: 20,
+              measuringUnit: 'm2',
+            },
+          },
+          members: [
+            {
+              name: 'adult',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 2,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 6,
+                  ratio: 3,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+            {
+              name: 'child',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 2,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 4,
+                  ratio: 2,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+          ],
+        },
+      ],
+    },
     {
       id: 25,
       name: 'IslandFill01',
@@ -348,6 +1535,212 @@ export const state = () => ({
                 count: 2,
                 unitSpace: 2,
                 measuringUnit: 'm2',
+              },
+            },
+          ],
+        },
+      ],
+      collectibles: [
+        {
+          name: '1/1 Family',
+          type: 'group',
+          prompting: 'What is the total size of this family in square meters?',
+          properties: {
+            unitSpace: {
+              name: 'unit space',
+              alias: 'total size',
+              value: 6,
+              measuringUnit: 'm2',
+            },
+          },
+          members: [
+            {
+              name: 'adult',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 1,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 4,
+                  ratio: 2,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+            {
+              name: 'child',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 1,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 2,
+                  ratio: 1,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+          ],
+        },
+        {
+          name: '1/2 Family',
+          type: 'group',
+          prompting: 'What is the total size of this family in square meters?',
+          properties: {
+            unitSpace: {
+              name: 'unit space',
+              alias: 'total size',
+              value: 8,
+              measuringUnit: 'm2',
+            },
+          },
+          members: [
+            {
+              name: 'adult',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 1,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 4,
+                  ratio: 2,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+            {
+              name: 'child',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 2,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 2,
+                  ratio: 1,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+          ],
+        },
+        {
+          name: '2/1 Family',
+          type: 'group',
+          prompting: 'What is the total size of this family in square meters?',
+          properties: {
+            unitSpace: {
+              name: 'unit space',
+              alias: 'total size',
+              value: 10,
+              measuringUnit: 'm2',
+            },
+          },
+          members: [
+            {
+              name: 'adult',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 2,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 4,
+                  ratio: 2,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+            {
+              name: 'child',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 1,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 2,
+                  ratio: 1,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+          ],
+        },
+        {
+          name: '2/2 Family',
+          type: 'group',
+          prompting: 'What is the total size of this family in square meters?',
+          properties: {
+            unitSpace: {
+              name: 'unit space',
+              alias: 'total size',
+              value: 12,
+              measuringUnit: 'm2',
+            },
+          },
+          members: [
+            {
+              name: 'adult',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 2,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 4,
+                  ratio: 2,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+            {
+              name: 'child',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 2,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 2,
+                  ratio: 1,
+                  measuringUnit: 'm2',
+                },
               },
             },
           ],
@@ -493,6 +1886,212 @@ export const state = () => ({
           ],
         },
       ],
+      collectibles: [
+        {
+          name: '1/1 Family',
+          type: 'group',
+          prompting: 'What is the total size of this family in square meters?',
+          properties: {
+            unitSpace: {
+              name: 'unit space',
+              alias: 'total size',
+              value: 9,
+              measuringUnit: 'm2',
+            },
+          },
+          members: [
+            {
+              name: 'adult',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 1,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 6,
+                  ratio: 2,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+            {
+              name: 'child',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 1,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 3,
+                  ratio: 1,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+          ],
+        },
+        {
+          name: '1/2 Family',
+          type: 'group',
+          prompting: 'What is the total size of this family in square meters?',
+          properties: {
+            unitSpace: {
+              name: 'unit space',
+              alias: 'total size',
+              value: 12,
+              measuringUnit: 'm2',
+            },
+          },
+          members: [
+            {
+              name: 'adult',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 1,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 6,
+                  ratio: 2,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+            {
+              name: 'child',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 2,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 3,
+                  ratio: 1,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+          ],
+        },
+        {
+          name: '2/1 Family',
+          type: 'group',
+          prompting: 'What is the total size of this family in square meters?',
+          properties: {
+            unitSpace: {
+              name: 'unit space',
+              alias: 'total size',
+              value: 15,
+              measuringUnit: 'm2',
+            },
+          },
+          members: [
+            {
+              name: 'adult',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 2,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 6,
+                  ratio: 2,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+            {
+              name: 'child',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 1,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 3,
+                  ratio: 1,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+          ],
+        },
+        {
+          name: '2/2 Family',
+          type: 'group',
+          prompting: 'What is the total size of this family in square meters?',
+          properties: {
+            unitSpace: {
+              name: 'unit space',
+              alias: 'total size',
+              value: 18,
+              measuringUnit: 'm2',
+            },
+          },
+          members: [
+            {
+              name: 'adult',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 2,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 6,
+                  ratio: 2,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+            {
+              name: 'child',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 2,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 3,
+                  ratio: 1,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+          ],
+        },
+      ],
       dwellings: [
         {
           name: 'shipping container',
@@ -633,6 +2232,212 @@ export const state = () => ({
           ],
         },
       ],
+      collectibles: [
+        {
+          name: '1/1 Family',
+          type: 'group',
+          prompting: 'What is the total size of this family in square meters?',
+          properties: {
+            unitSpace: {
+              name: 'unit space',
+              alias: 'total size',
+              value: 10,
+              measuringUnit: 'm2',
+            },
+          },
+          members: [
+            {
+              name: 'adult',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 1,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 6,
+                  ratio: 3,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+            {
+              name: 'child',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 1,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 4,
+                  ratio: 2,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+          ],
+        },
+        {
+          name: '1/2 Family',
+          type: 'group',
+          prompting: 'What is the total size of this family in square meters?',
+          properties: {
+            unitSpace: {
+              name: 'unit space',
+              alias: 'total size',
+              value: 14,
+              measuringUnit: 'm2',
+            },
+          },
+          members: [
+            {
+              name: 'adult',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 1,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 6,
+                  ratio: 3,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+            {
+              name: 'child',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 2,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 4,
+                  ratio: 2,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+          ],
+        },
+        {
+          name: '2/1 Family',
+          type: 'group',
+          prompting: 'What is the total size of this family in square meters?',
+          properties: {
+            unitSpace: {
+              name: 'unit space',
+              alias: 'total size',
+              value: 16,
+              measuringUnit: 'm2',
+            },
+          },
+          members: [
+            {
+              name: 'adult',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 2,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 6,
+                  ratio: 3,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+            {
+              name: 'child',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 1,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 4,
+                  ratio: 2,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+          ],
+        },
+        {
+          name: '2/2 Family',
+          type: 'group',
+          prompting: 'What is the total size of this family in square meters?',
+          properties: {
+            unitSpace: {
+              name: 'unit space',
+              alias: 'total size',
+              value: 20,
+              measuringUnit: 'm2',
+            },
+          },
+          members: [
+            {
+              name: 'adult',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 2,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 6,
+                  ratio: 3,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+            {
+              name: 'child',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 2,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 4,
+                  ratio: 2,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+          ],
+        },
+      ],
       dwellings: [
         {
           name: 'shipping container',
@@ -686,6 +2491,212 @@ export const state = () => ({
           ],
         },
       ],
+      collectibles: [
+        {
+          name: '1/1 Family',
+          type: 'group',
+          prompting: 'What is the total size of this family in square meters?',
+          properties: {
+            unitSpace: {
+              name: 'unit space',
+              alias: 'total size',
+              value: 6,
+              measuringUnit: 'm2',
+            },
+          },
+          members: [
+            {
+              name: 'adult',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 1,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 4,
+                  ratio: 2,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+            {
+              name: 'child',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 1,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 2,
+                  ratio: 1,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+          ],
+        },
+        {
+          name: '1/2 Family',
+          type: 'group',
+          prompting: 'What is the total size of this family in square meters?',
+          properties: {
+            unitSpace: {
+              name: 'unit space',
+              alias: 'total size',
+              value: 8,
+              measuringUnit: 'm2',
+            },
+          },
+          members: [
+            {
+              name: 'adult',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 1,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 4,
+                  ratio: 2,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+            {
+              name: 'child',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 2,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 2,
+                  ratio: 1,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+          ],
+        },
+        {
+          name: '2/1 Family',
+          type: 'group',
+          prompting: 'What is the total size of this family in square meters?',
+          properties: {
+            unitSpace: {
+              name: 'unit space',
+              alias: 'total size',
+              value: 10,
+              measuringUnit: 'm2',
+            },
+          },
+          members: [
+            {
+              name: 'adult',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 2,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 4,
+                  ratio: 2,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+            {
+              name: 'child',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 1,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 2,
+                  ratio: 1,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+          ],
+        },
+        {
+          name: '2/2 Family',
+          type: 'group',
+          prompting: 'What is the total size of this family in square meters?',
+          properties: {
+            unitSpace: {
+              name: 'unit space',
+              alias: 'total size',
+              value: 12,
+              measuringUnit: 'm2',
+            },
+          },
+          members: [
+            {
+              name: 'adult',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 2,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 4,
+                  ratio: 2,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+            {
+              name: 'child',
+              type: 'individual',
+              properties: {
+                count: {
+                  name: 'count',
+                  value: 2,
+                  measuringUnit: '',
+                },
+                unitSpace: {
+                  name: 'unit space',
+                  alias: 'size',
+                  value: 2,
+                  ratio: 1,
+                  measuringUnit: 'm2',
+                },
+              },
+            },
+          ],
+        },
+      ],
       dwellings: [
         {
           name: 'shipping container',
@@ -708,6 +2719,44 @@ export const state = () => ({
       id: 29,
       name: 'SchoolAssignment01',
       actions: ['allocating', 'collecting'],
+      collectibles: [
+        {
+          name: 'Computer Student',
+          type: 'individual',
+          prompting: 'How much space does a computer student need?',
+          properties: {
+            unitSpace: {
+              name: 'unit space',
+              value: 6,
+              measuringUnit: 'm2',
+            },
+          },
+        },
+        {
+          name: 'Writing Student',
+          type: 'individual',
+          prompting: 'How much space does a writing student need?',
+          properties: {
+            unitSpace: {
+              name: 'unit space',
+              value: 1,
+              measuringUnit: 'm2',
+            },
+          },
+        },
+        {
+          name: 'Math Student',
+          type: 'individual',
+          prompting: 'How much space does a math student need?',
+          properties: {
+            unitSpace: {
+              name: 'unit space',
+              value: 3,
+              measuringUnit: 'm2',
+            },
+          },
+        },
+      ],
       occupants: [
         {
           name: 'Computer Student',
@@ -793,6 +2842,44 @@ export const state = () => ({
           },
         },
       ],
+      collectibles: [
+        {
+          name: 'Computer Student',
+          type: 'individual',
+          prompting: 'How much space does a computer student need?',
+          properties: {
+            unitSpace: {
+              name: 'unit space',
+              value: 6,
+              measuringUnit: 'm2',
+            },
+          },
+        },
+        {
+          name: 'Writing Student',
+          type: 'individual',
+          prompting: 'How much space does a writing student need?',
+          properties: {
+            unitSpace: {
+              name: 'unit space',
+              value: 1,
+              measuringUnit: 'm2',
+            },
+          },
+        },
+        {
+          name: 'Math Student',
+          type: 'individual',
+          prompting: 'How much space does a math student need?',
+          properties: {
+            unitSpace: {
+              name: 'unit space',
+              value: 3,
+              measuringUnit: 'm2',
+            },
+          },
+        },
+      ],
       dwellings: [
         {
           name: 'shipping container',
@@ -815,6 +2902,31 @@ export const state = () => ({
       id: 36,
       name: 'SchoolPlacement02',
       actions: ['collecting', 'placing'],
+      collectibles: [
+        {
+          name: 'shipping container',
+          type: 'prefab building',
+          prompting: 'What is the floor space of this shipping container?',
+          properties: {
+            length: {
+              name: 'length',
+              value: 6,
+              measuringUnit: 'm',
+            },
+            width: {
+              name: 'width',
+              value: 3,
+              measuringUnit: 'm',
+            },
+            floorSpace: {
+              name: 'area',
+              alias: 'floor space',
+              value: 18,
+              measuringUnit: 'm2',
+            },
+          },
+        },
+      ],
     },
     { id: 37, name: 'TrainingMove01', actions: [] },
     { id: 38, name: 'TrainingMove02', actions: [] },
@@ -832,8 +2944,8 @@ export const state = () => ({
   ],
 })
 
-const occupantImage = (occupantName) => {
-  const lowercaseName = occupantName.toLowerCase()
+const itemImage = (itemName) => {
+  const lowercaseName = itemName.toLowerCase()
   const urls = {
     '1/1 family': '/images/occupants/family-1-1.png',
     '1/2 family': '/images/occupants/family-1-2.png',
@@ -843,18 +2955,48 @@ const occupantImage = (occupantName) => {
     'computer student': '/images/occupants/computer-student-1.png',
     'writing student': '/images/occupants/writing-student-1.png',
     fish: '/images/occupants/fish-1.png',
+    'shipping container': '/images/dwellings/shipping-container-1.png',
+    'adobe house': '/images/dwellings/adobe-house-1.png',
+    'water tank': '/images/dwellings/water-tank-1.png',
+    'short fence': '/images/material/short-fence-1.png',
+    'long fence': '/images/material/long-fence-1.png',
+    'clay block': '/images/material/clay-block-1.png',
   }
   return lowercaseName in urls ? urls[lowercaseName] : undefined
 }
 
-const dwellingImage = (dwellingName) => {
-  const lowercaseName = dwellingName.toLowerCase()
-  const urls = {
-    'shipping container': '/images/dwellings/shipping-container-1.png',
-    'adobe house': '/images/dwellings/adobe-house-1.png',
-    'water tank': '/images/dwellings/water-tank-1.png',
-  }
-  return lowercaseName in urls ? urls[lowercaseName] : undefined
+// const itemPrompting = (item) => {
+//   const lowercaseName = item.name.toLowerCase()
+//   const prompts = {
+//     '1/1 family': 'What is the total size of this family in square meters?',
+//     '1/2 family': 'What is the total size of this family in square meters?',
+//     '2/1 family': 'What is the total size of this family in square meters?',
+//     '2/2 family': 'What is the total size of this family in square meters?',
+//     'math student': 'How much space does this student need?',
+//     'computer student': 'How much space does this student need?',
+//     'writing student': 'How much space does this student need?',
+//     'shipping container': `What is the floor space of this shipping container?`,
+//     fish: 'How much space does this fish need?',
+//     'clay block': 'How many blocks are required for a 4X6 meter wall?',
+//     'floor tile': 'What is the area of this floor tile?',
+//     'short fence':
+//       'How many fence pieces will you need for a square with a perimeter of 12 meter?',
+//     'long fence':
+//       'How many fence pieces will you need for a square with a perimeter of 40 meter?',
+//   }
+//   return lowercaseName in prompts ? prompts[lowercaseName] : undefined
+// }
+
+const populateCollectibleProps = (props) => {
+  return Object.fromEntries(
+    Object.entries(props).map(([key, prop]) => [
+      key,
+      {
+        checked: false,
+        ...prop,
+      },
+    ])
+  )
 }
 
 const populateOccupantProps = (props) => {
@@ -929,7 +3071,7 @@ export const getters = {
     return occupants.map((occupant, index) => ({
       name: occupant.name,
       type: occupant.type,
-      image: occupantImage(occupant.name),
+      image: itemImage(occupant.name),
       checked: false,
       properties: {
         ...populateOccupantProps(occupant.properties),
@@ -953,7 +3095,7 @@ export const getters = {
     return dwellings.map((dwelling, index) => ({
       name: dwelling.name,
       type: dwelling.type,
-      image: dwellingImage(dwelling.name),
+      image: itemImage(dwelling.name),
       checked: false,
       properties: {
         ...populateDwellingProps(dwelling.properties),
@@ -975,6 +3117,32 @@ export const getters = {
         ),
       },
     }))
+  },
+  collectibles: (state) => (levelName) => {
+    const levelData = state.list.find(
+      (x) => x.name.toLowerCase() === levelName.toLowerCase()
+    )
+    const collectibles =
+      'collectibles' in levelData ? levelData.collectibles : undefined
+
+    if (collectibles) {
+      return collectibles.map((item) => ({
+        name: item.name,
+        type: item.type,
+        prompting: item.prompting,
+        image: itemImage(item.name),
+        checked: false,
+        properties: populateCollectibleProps(item.properties),
+        ...(item.type === 'group' && {
+          members: item.members.map((member) => ({
+            name: member.name,
+            type: member.type,
+            checked: false,
+            properties: populateCollectibleProps(member.properties),
+          })),
+        }),
+      }))
+    }
   },
 }
 

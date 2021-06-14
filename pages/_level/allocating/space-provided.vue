@@ -85,8 +85,8 @@ export default {
       const value = mathValue
 
       return {
-        title: `The Length of ${dwelling.name}`,
-        question: `What is the length of this ${dwelling.name} need?`,
+        title: `The ${value.name} of ${dwelling.name}`,
+        question: `What is the ${value.name} of this ${dwelling.name}?`,
         hintFeedback: `Please check the information on the ${value.name} of the ${dwelling.name} using the tooltip in the game.`,
         inputType: 'number',
         hasUnit: !!value.measuringUnit,

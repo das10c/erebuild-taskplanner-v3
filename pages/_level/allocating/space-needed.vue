@@ -78,7 +78,7 @@
               </question-prompt>
             </div>
             <v-divider
-              v-if="pIdx < occupant.properties.length - 1"
+              v-if="pIdx < Object.keys(occupant.properties).length - 1"
               :key="'divider-' + pIdx"
             ></v-divider>
           </template>
@@ -110,26 +110,7 @@ export default {
       return this.$store.getters['allocating/getOccupants']
     },
   },
-  created() {
-    const occupantLength = this.$store.getters['allocating/occupantsLength']
-    const memberLength = this.$store.getters['allocating/occupantMemberLength']
-    if (memberLength !== 0) {
-      for (let i = 0; i < occupantLength; i++) {
-        this.$store.commit('allocating/checkMemberProperty', {
-          occupantIndex: i,
-          memberIndex: 0,
-          propertyKey: 'unitSpace',
-        })
-        for (let j = 0; j < memberLength; j++) {
-          this.$store.commit('allocating/checkMemberProperty', {
-            occupantIndex: i,
-            memberIndex: j,
-            propertyKey: 'count',
-          })
-        }
-      }
-    }
-  },
+  created() {},
   methods: {
     feedMemberData(occupantIndex, memberIndex, property) {
       const occupant = this.occupants[occupantIndex]

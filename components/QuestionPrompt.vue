@@ -15,19 +15,22 @@
       <slot name="activator" :on="on" :attrs="attrs"></slot>
     </template>
     <v-card>
-      <v-card-title
-        class="py-2 subtitle-1 text--secondary light-blue lighten-4"
-      >
+      <v-card-title class="subtitle-1 text--secondary light-blue lighten-4">
         {{ title }}
       </v-card-title>
       <v-divider></v-divider>
       <v-card-text>
         <v-container>
-          <v-row class="my-2 text--primary text-body-1 font-weight-bold">
+          <v-row class="pt-2 text--primary text-body-1 font-weight-bold">
             {{ question | capitalize }}
           </v-row>
           <v-row>
-            <v-col cols="9" class="mx-auto">
+            <v-col cols="2">
+              <v-btn v-if="hasHint" color="error" fab small>
+                <v-icon>mdi-information-outline</v-icon>
+              </v-btn>
+            </v-col>
+            <v-col cols="8" class="pb-0">
               <template v-if="inputType === 'number'">
                 <v-text-field
                   v-model="userInput"
@@ -36,7 +39,6 @@
                   label="Please enter your answer"
                   :hint="tip"
                   :disabled="completed"
-                  autofocus
                   outlined
                 >
                   <template v-if="hasUnit" #append>
@@ -92,6 +94,9 @@
               dense
               >{{ hintFeedback }}</v-alert
             >
+          </v-row>
+          <v-row v-if="hasHint">
+            <slot name="hint"></slot>
           </v-row>
         </v-container>
       </v-card-text>
@@ -183,6 +188,10 @@ export default {
     invalidFeedback: {
       type: String,
       default: "That's not correct. Please try again.",
+    },
+    hasHint: {
+      type: Boolean,
+      default: false,
     },
   },
   data() {

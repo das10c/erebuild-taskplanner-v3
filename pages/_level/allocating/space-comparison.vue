@@ -15,10 +15,7 @@
       ></items-list-panel>
     </div>
     <div class="d-flex justify-center flex-column mx-2">
-      <question-prompt
-        v-bind="feedQuestionPrompt()"
-        @proceeded="checked = true"
-      >
+      <question-prompt v-bind="feedQuestionPrompt()" @proceeded="completed()">
         <template #activator="slotProps">
           <v-btn
             color="error"
@@ -64,12 +61,13 @@ export default {
   name: 'SpaceComparison',
   components: { ItemsListPanel, QuestionPrompt },
   data() {
-    return {
-      checked: false,
-    }
+    return {}
   },
   async fetch() {},
   computed: {
+    checked() {
+      return this.$store.state.allocating.tabs[2].checked
+    },
     colors() {
       return this.$store.state.allocating.colors
     },
@@ -120,6 +118,9 @@ export default {
           this.dwellings[0].name
         )} is bigger.`,
       }
+    },
+    completed() {
+      this.$store.commit('allocating/checkPhase', 2)
     },
   },
 }

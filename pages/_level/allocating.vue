@@ -8,7 +8,7 @@
     </v-system-bar>
     <v-tabs
       v-model="currentTab"
-      height="48"
+      height="32"
       centered
       fixed-tabs
       :background-color="tabColor"
@@ -56,18 +56,57 @@ export default {
   },
   computed: {
     tabs() {
-      return this.$store.getters['allocating/getTabs']
+      return this.$store.state.allocating.tabs
     },
   },
   created() {
-    const occupants = this.$store.getters['data/occupants'](
-      this.$store.state.level
-    )
+    const level = this.$store.state.level
+    const occupants = this.$store.getters['data/occupants'](level)
+    const dwellings = this.$store.getters['data/dwellings'](level)
+    const tabs = [
+      {
+        name: 'Space Needed',
+        to: `/${level}/allocating/space-needed`,
+        checked: false,
+      },
+      {
+        name: 'Space Provided',
+        to: `/${level}/allocating/space-provided`,
+        checked: false,
+      },
+      {
+        name: 'Space Comparison',
+        to: `/${level}/allocating/space-comparison`,
+        checked: false,
+      },
+      {
+        name: 'Practice',
+        to: `/${level}/allocating/allocating-practice`,
+        checked: false,
+      },
+    ]
     this.$store.commit('allocating/setOccupants', occupants)
-    const dwellings = this.$store.getters['data/dwellings'](
-      this.$store.state.level
-    )
     this.$store.commit('allocating/setDwellings', dwellings)
+    this.$store.commit('allocating/setTabs', tabs)
+
+    const occupantLength = this.$store.getters['allocating/occupantsLength']
+    const memberLength = this.$store.getters['allocating/occupantMemberLength']
+    if (memberLength !== 0) {
+      for (let i = 0; i < occupantLength; i++) {
+        this.$store.commit('allocating/checkMemberProperty', {
+          occupantIndex: i,
+          memberIndex: 0,
+          propertyKey: 'unitSpace',
+        })
+        for (let j = 0; j < memberLength; j++) {
+          this.$store.commit('allocating/checkMemberProperty', {
+            occupantIndex: i,
+            memberIndex: j,
+            propertyKey: 'count',
+          })
+        }
+      }
+    }
   },
 }
 </script>
