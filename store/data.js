@@ -31,6 +31,22 @@ export const state = () => ({
           },
         },
       ],
+      buildingGoals: [
+        {
+          type: 'volume',
+          full: true,
+          building: {
+            name: 'shipping container home',
+            properties: {
+              length: 18,
+              width: 3,
+              height: 6,
+            },
+          },
+          measuringUnit: 'm3',
+          value: 324,
+        },
+      ],
     },
     {
       id: 4,
@@ -59,6 +75,22 @@ export const state = () => ({
               measuringUnit: 'm2',
             },
           },
+        },
+      ],
+      buildingGoals: [
+        {
+          type: 'volume',
+          full: true,
+          building: {
+            name: 'shipping container home',
+            properties: {
+              length: 15,
+              width: 8,
+              height: 6,
+            },
+          },
+          measuringUnit: 'm3',
+          value: 720,
         },
       ],
     },
@@ -91,6 +123,22 @@ export const state = () => ({
           },
         },
       ],
+      buildingGoals: [
+        {
+          type: 'surface area',
+          full: true,
+          building: {
+            name: 'adobe house',
+            properties: {
+              length: 6,
+              width: 4,
+              height: 4,
+            },
+          },
+          measuringUnit: 'm2',
+          value: 104,
+        },
+      ],
     },
     {
       id: 6,
@@ -119,6 +167,22 @@ export const state = () => ({
               measuringUnit: 'm2',
             },
           },
+        },
+      ],
+      buildingGoals: [
+        {
+          type: 'surface area',
+          full: true,
+          building: {
+            name: 'adobe house',
+            properties: {
+              length: 6,
+              width: 4,
+              height: 4,
+            },
+          },
+          measuringUnit: 'm2',
+          value: 104,
         },
       ],
     },
@@ -151,9 +215,89 @@ export const state = () => ({
           },
         },
       ],
+      buildingGoals: [
+        {
+          type: 'surface area',
+          full: true,
+          building: {
+            name: 'adobe house',
+            properties: {
+              length: 6,
+              width: 4,
+              height: 4,
+            },
+          },
+          measuringUnit: 'm2',
+          value: 104,
+        },
+      ],
     },
-    { id: 8, name: 'DesertCopy01', actions: ['building', 'trading'] },
-    { id: 9, name: 'DesertCopy02', actions: ['building', 'trading'] },
+    {
+      id: 8,
+      name: 'DesertCopy01',
+      actions: ['building', 'trading'],
+      buildingGoals: [
+        {
+          type: 'area',
+          full: true,
+          building: {
+            name: 'adobe house',
+            properties: {
+              length: 8,
+              width: 4,
+            },
+          },
+          measuringUnit: 'm2',
+          value: 32,
+        },
+        {
+          type: 'area',
+          full: false,
+          building: {
+            name: 'adobe house',
+            properties: {
+              length: 6,
+              width: 4,
+            },
+          },
+          measuringUnit: 'm2',
+          value: 24,
+        },
+      ],
+    },
+    {
+      id: 9,
+      name: 'DesertCopy02',
+      actions: ['building', 'trading'],
+      buildingGoals: [
+        {
+          type: 'area',
+          full: true,
+          building: {
+            name: 'adobe house',
+            properties: {
+              length: 8,
+              width: 4,
+            },
+          },
+          measuringUnit: 'm2',
+          value: 32,
+        },
+        {
+          type: 'area',
+          full: false,
+          building: {
+            name: 'adobe house',
+            properties: {
+              length: 6,
+              width: 4,
+            },
+          },
+          measuringUnit: 'm2',
+          value: 24,
+        },
+      ],
+    },
     {
       id: 10,
       name: 'DesertFill01',
@@ -3141,6 +3285,19 @@ export const getters = {
             properties: populateCollectibleProps(member.properties),
           })),
         }),
+      }))
+    }
+  },
+  buildingGoals: (state) => (levelName) => {
+    const levelData = state.list.find(
+      (x) => x.name.toLowerCase() === levelName.toLowerCase()
+    )
+    const goals =
+      'buildingGoals' in levelData ? levelData.buildingGoals : undefined
+
+    if (goals) {
+      return goals.map((item) => ({
+        name: item.name,
       }))
     }
   },

@@ -41,6 +41,7 @@ export default {
     userToken: '',
     gameLevel: '',
     actions: [],
+    taskPlannerEvents: [],
   }),
   computed: {
     tabs() {
@@ -61,6 +62,69 @@ export default {
     const actions = this.$store.getters['data/planners'](levelName)
     if (levelName) this.gameLevel = levelName
     if (actions.length > 0) this.actions = actions
+  },
+  beforeMount() {
+    window.addEventListener('message', this.getUserToken)
+  },
+  destroyed() {
+    window.addEventListener('message', this.getUserToken)
+  },
+  methods: {
+    async sendOpenLogs(userToken, gameLevel) {
+      return await this.$axios.get(`/panel/open/${gameLevel}/${userToken}`)
+    },
+    async sendCloseLogs(userToken, gameLevel) {
+      return await this.$axios.get(`/panel/close/${gameLevel}/${userToken}`)
+    },
+    async sendTaskPlannerRecords(data) {
+      return await this.$axios.post(`/panel/save/`, JSON.stringify(data), {
+        headers: {
+          'X-CSRFToken': this.getCookie('csrftoken'),
+          Accept: 'application/json',
+          'X-Requested-With': 'XMLHttpRequest',
+          'Content-Type': 'application/json',
+        },
+      })
+    },
+    getCookie(name) {
+      let cookieValue = null
+      if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';')
+        for (let i = 0; i < cookies.length; i++) {
+          const cookie = cookies[i].trim()
+          // Does this cookie string begin with the name we want?
+          if (cookie.substring(0, name.length + 1) === name + '=') {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1))
+            break
+          }
+        }
+      }
+      return cookieValue
+    },
+    getUserToken(event) {
+      const userEmail = event.data.user_email
+      const gameLevel = event.data.src
+      // eslint-disable-next-line no-console
+      console.log(userEmail)
+      // eslint-disable-next-line no-console
+      console.log(gameLevel)
+    },
+    sendPanelLogs(event) {
+      const userEmail = event.data.user_email
+      const gameLevel = event.data.src
+
+      if (event.data.status === 'OPEN') {
+        this.sendOpenLogs(userEmail, gameLevel)
+      } else if (event.data.status === 'CLOSE') {
+        this.sendCloseLogs(userEmail, gameLevel)
+        const data = {
+          user_token: userEmail,
+          game_level: gameLevel,
+          data: '',
+        }
+        this.sendTaskPlannerRecords(data)
+      }
+    },
   },
 }
 </script>
