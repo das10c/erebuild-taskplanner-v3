@@ -66,10 +66,10 @@ export default {
     if (actions.length > 0) this.actions = actions
   },
   beforeMount() {
-    window.addEventListener('message', this.getUserToken)
+    window.addEventListener('message', this.sendPanelLogs)
   },
   destroyed() {
-    window.addEventListener('message', this.getUserToken)
+    window.addEventListener('message', this.sendPanelLogs)
   },
   methods: {
     async sendOpenLogs(userToken, gameLevel) {
@@ -103,28 +103,21 @@ export default {
       }
       return cookieValue
     },
-    getUserToken(event) {
-      const userEmail = event.data.user_email
-      const gameLevel = event.data.src
-      // eslint-disable-next-line no-console
-      console.log(userEmail)
-      // eslint-disable-next-line no-console
-      console.log(gameLevel)
-    },
     sendPanelLogs(event) {
       const userEmail = event.data.user_email
       const gameLevel = event.data.src
       this.$store.commit('setUserToken', userEmail)
+
       if (event.data.status === 'OPEN') {
         this.sendOpenLogs(userEmail, gameLevel)
       } else if (event.data.status === 'CLOSE') {
         this.sendCloseLogs(userEmail, gameLevel)
-        const data = {
-          user_token: userEmail,
-          game_level: gameLevel,
-          data: '',
-        }
-        this.sendTaskPlannerRecords(data)
+        // const data = {
+        //   user_token: userEmail,
+        //   game_level: gameLevel,
+        //   data: '',
+        // }
+        // this.sendTaskPlannerRecords(data)
       }
     },
   },
