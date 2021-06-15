@@ -38,7 +38,6 @@ export default {
   name: 'Level',
   data: () => ({
     appTitle: 'Task Planner',
-    userToken: '',
     gameLevel: '',
     actions: [],
     taskPlannerEvents: [],
@@ -49,6 +48,9 @@ export default {
         title: action.toUpperCase(),
         link: `/${this.gameLevel}/${action}/`,
       }))
+    },
+    userToken() {
+      return this.$store.getters.userToken
     },
   },
   beforeCreate() {
@@ -112,7 +114,7 @@ export default {
     sendPanelLogs(event) {
       const userEmail = event.data.user_email
       const gameLevel = event.data.src
-
+      this.$store.commit('setUserToken', userEmail)
       if (event.data.status === 'OPEN') {
         this.sendOpenLogs(userEmail, gameLevel)
       } else if (event.data.status === 'CLOSE') {
