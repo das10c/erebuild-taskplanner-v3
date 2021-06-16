@@ -82,6 +82,7 @@ export default {
       return await this.$axios.post(`/panel/save/`, JSON.stringify(data), {
         headers: {
           'X-CSRFToken': this.getCookie('csrftoken'),
+          credentials: 'same-origin',
           Accept: 'application/json',
           'X-Requested-With': 'XMLHttpRequest',
           'Content-Type': 'application/json',
