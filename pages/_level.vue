@@ -115,13 +115,12 @@ export default {
     },
     sendPanelLogs(event) {
       const userEmail = event.data.user_email
-      const gameLevel = event.data.src
       this.$store.commit('setUserToken', userEmail)
 
       if (event.data.status === 'OPEN') {
-        this.sendOpenLogs(userEmail, gameLevel)
+        this.sendOpenLogs(userEmail, this.gameLevel)
       } else if (event.data.status === 'CLOSE') {
-        this.sendCloseLogs(userEmail, gameLevel)
+        this.sendCloseLogs(userEmail, this.gameLevel)
         // const data = {
         //   user_token: userEmail,
         //   game_level: gameLevel,
