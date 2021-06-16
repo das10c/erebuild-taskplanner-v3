@@ -72,37 +72,30 @@ export default {
     window.addEventListener('message', this.sendPanelLogs)
   },
   methods: {
+    getHeaders() {
+      return {
+        'X-CSRFToken': this.getCookie('csrftoken'),
+        credentials: 'same-origin',
+        Accept: 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Headers':
+          'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With',
+      }
+    },
     async sendOpenLogs(userToken, gameLevel) {
       return await this.$axios.get(`/panel/open/${gameLevel}/${userToken}`, {
-        headers: {
-          'X-CSRFToken': this.getCookie('csrftoken'),
-          credentials: 'same-origin',
-          Accept: 'application/json',
-          'X-Requested-With': 'XMLHttpRequest',
-          'Content-Type': 'application/json',
-        },
+        headers: this.getHeaders,
       })
     },
     async sendCloseLogs(userToken, gameLevel) {
       return await this.$axios.get(`/panel/close/${gameLevel}/${userToken}`, {
-        headers: {
-          'X-CSRFToken': this.getCookie('csrftoken'),
-          credentials: 'same-origin',
-          Accept: 'application/json',
-          'X-Requested-With': 'XMLHttpRequest',
-          'Content-Type': 'application/json',
-        },
+        headers: this.getHeaders,
       })
     },
     async sendTaskPlannerRecords(data) {
       return await this.$axios.post(`/panel/save/`, JSON.stringify(data), {
-        headers: {
-          'X-CSRFToken': this.getCookie('csrftoken'),
-          credentials: 'same-origin',
-          Accept: 'application/json',
-          'X-Requested-With': 'XMLHttpRequest',
-          'Content-Type': 'application/json',
-        },
+        headers: this.getHeaders,
       })
     },
     getCookie(name) {
