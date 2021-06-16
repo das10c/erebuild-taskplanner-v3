@@ -73,10 +73,26 @@ export default {
   },
   methods: {
     async sendOpenLogs(userToken, gameLevel) {
-      return await this.$axios.get(`/panel/open/${gameLevel}/${userToken}`)
+      return await this.$axios.get(`/panel/open/${gameLevel}/${userToken}`, {
+        headers: {
+          'X-CSRFToken': this.getCookie('csrftoken'),
+          credentials: 'same-origin',
+          Accept: 'application/json',
+          'X-Requested-With': 'XMLHttpRequest',
+          'Content-Type': 'application/json',
+        },
+      })
     },
     async sendCloseLogs(userToken, gameLevel) {
-      return await this.$axios.get(`/panel/close/${gameLevel}/${userToken}`)
+      return await this.$axios.get(`/panel/close/${gameLevel}/${userToken}`, {
+        headers: {
+          'X-CSRFToken': this.getCookie('csrftoken'),
+          credentials: 'same-origin',
+          Accept: 'application/json',
+          'X-Requested-With': 'XMLHttpRequest',
+          'Content-Type': 'application/json',
+        },
+      })
     },
     async sendTaskPlannerRecords(data) {
       return await this.$axios.post(`/panel/save/`, JSON.stringify(data), {
