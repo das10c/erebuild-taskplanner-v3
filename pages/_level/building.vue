@@ -61,7 +61,7 @@ export default {
   },
   created() {
     const level = this.$store.state.level
-    const buildings = this.$store.getters['data/buildings'](level)
+    const goals = this.$store.getters['data/buildingGoals'](level)
     const tabs = [
       {
         name: 'Goal Identification',
@@ -79,7 +79,7 @@ export default {
         checked: false,
       },
     ]
-    this.$store.commit('building/setBuildings', buildings)
+    this.$store.commit('building/setGoals', goals)
     this.$store.commit('building/setTabs', tabs)
   },
 }

@@ -8,6 +8,7 @@ export const state = () => ({
   occupants: [],
   dwellings: [],
   tabs: [],
+  userInputs: [],
 })
 
 export const getters = {
@@ -67,6 +68,9 @@ export const getters = {
 export const mutations = {
   checkPhase(state, phaseIndex) {
     state.tabs[phaseIndex].checked = true
+  },
+  addUserInput(state, data) {
+    state.userInputs.push(data)
   },
   setOccupants(state, data) {
     state.occupants = data

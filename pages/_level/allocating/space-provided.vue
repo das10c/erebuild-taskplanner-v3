@@ -145,11 +145,23 @@ export default {
         dwellingIndex,
         valueKey,
       })
+      this.$store.commit('setInteractions', {
+        type: 'dwelling.mathValue',
+        data: this.dwellings[dwellingIndex].mathValues[valueKey],
+        status: 'completed',
+        timestamp: Date.now(),
+      })
     },
     checkProperty(dwellingIndex, propertyKey) {
       this.$store.commit('allocating/checkDwellingProperty', {
         dwellingIndex,
         propertyKey,
+      })
+      this.$store.commit('setInteractions', {
+        type: 'dwelling.property',
+        data: this.dwellings[dwellingIndex].properties[propertyKey],
+        status: 'completed',
+        timestamp: Date.now(),
       })
     },
   },

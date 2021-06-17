@@ -196,6 +196,12 @@ export default {
         occupantIndex,
         memberIndex,
       })
+      this.$store.commit('setInteractions', {
+        type: 'occupant.member',
+        data: this.occupants[occupantIndex].members[memberIndex],
+        status: 'completed',
+        timestamp: Date.now(),
+      })
     },
     checkMemberProperty(occupantIndex, memberIndex, propertyKey) {
       this.$store.commit('allocating/checkMemberProperty', {
@@ -203,15 +209,35 @@ export default {
         memberIndex,
         propertyKey,
       })
+      this.$store.commit('setInteractions', {
+        type: 'occupant.member.property',
+        data: this.occupants[occupantIndex].members[memberIndex].properties[
+          propertyKey
+        ],
+        status: 'completed',
+        timestamp: Date.now(),
+      })
     },
     checkProperty(occupantIndex, propertyKey) {
       this.$store.commit('allocating/checkProperty', {
         occupantIndex,
         propertyKey,
       })
+      this.$store.commit('setInteractions', {
+        type: 'occupant.property',
+        data: this.occupants[occupantIndex].properties[propertyKey],
+        status: 'completed',
+        timestamp: Date.now(),
+      })
     },
     checkOccupant(occupantIndex) {
       this.$store.commit('allocating/checkOccupant', occupantIndex)
+      this.$store.commit('setInteractions', {
+        type: 'occupant',
+        data: this.occupants[occupantIndex],
+        status: 'completed',
+        timestamp: Date.now(),
+      })
     },
   },
 }

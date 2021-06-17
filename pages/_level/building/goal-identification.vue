@@ -1,7 +1,14 @@
 <template>
   <v-row class="py-1" justify="center" dense>
     <v-col v-for="(goal, index) in goals" :key="index" cols="4">
-      <app-cards></app-cards>
+      <app-cards
+        v-bind="{
+          extended: false,
+          color: colors[index].str,
+          hexColor: colors[index].hex,
+          ...goal,
+        }"
+      ></app-cards>
     </v-col>
   </v-row>
 </template>

@@ -66,10 +66,10 @@ export default {
     if (actions.length > 0) this.actions = actions
   },
   beforeMount() {
-    window.addEventListener('message', this.sendPanelLogs)
+    // window.addEventListener('message', this.sendPanelLogs)
   },
   destroyed() {
-    window.addEventListener('message', this.sendPanelLogs)
+    // window.removeEventListener('message', this.sendPanelLogs)
   },
   methods: {
     getHeaders() {
@@ -121,12 +121,12 @@ export default {
         this.sendOpenLogs(userEmail, this.gameLevel)
       } else if (event.data.status === 'CLOSE') {
         this.sendCloseLogs(userEmail, this.gameLevel)
-        // const data = {
-        //   user_token: userEmail,
-        //   game_level: gameLevel,
-        //   data: '',
-        // }
-        // this.sendTaskPlannerRecords(data)
+        const data = {
+          user_token: userEmail,
+          game_level: this.gameLevel,
+          data: this.$store.state.interactions,
+        }
+        this.sendTaskPlannerRecords(data)
       }
     },
   },

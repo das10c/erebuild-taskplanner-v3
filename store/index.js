@@ -2,6 +2,7 @@ export const state = () => ({
   userToken: '',
   level: '',
   tabs: [],
+  interactions: [],
 })
 
 export const getters = {
@@ -24,6 +25,9 @@ export const mutations = {
     state.tabs = actionList
   },
   setUserToken(state, userTokenStr) {
-    state.userToken = userTokenStr
+    if (userTokenStr) state.userToken = userTokenStr
+  },
+  setInteractions(state, data) {
+    state.interactions.push(data)
   },
 }

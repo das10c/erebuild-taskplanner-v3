@@ -199,6 +199,7 @@ export default {
       dialog: false,
       validated: false,
       errorCount: 0,
+      errors: [],
       completed: false,
       proceeded: false,
       userInput: null,
@@ -230,13 +231,58 @@ export default {
       return this.validated && !this.completed && this.errorCount >= 3
     },
   },
+  watch: {
+    dialog(newVal, oldVal) {
+      let status
+      if (newVal === true && oldVal === false) {
+        status = 'open'
+      } else {
+        status = 'close'
+      }
+      const data = {
+        inputType: this.inputType,
+        question: this.question,
+        answer: this.answer,
+        title: this.title,
+      }
+      this.$store.commit('setInteractions', {
+        type: 'questionPrompt',
+        status,
+        data,
+        timestamp: Date.now(),
+      })
+    },
+  },
   methods: {
     submit() {
       this.validated = false
       if (this.checkAnswer()) {
         this.completed = true
+        this.$store.commit('setInteractions', {
+          type: 'submit',
+          data: {
+            question: this.question,
+            userInput: this.userInput,
+            userSelected: this.userSelected,
+            answer: this.answer,
+          },
+          status: 'correct',
+          timestamp: Date.now(),
+        })
       } else {
         this.errorCount++
+        this.$store.commit('setInteractions', {
+          type: 'submit',
+          data: {
+            question: this.question,
+            userInput: this.userInput,
+            userSelected: this.userSelected,
+            answer: this.answer,
+          },
+          status: 'incorrect',
+          errorCount: this.errorCount,
+          timestamp: Date.now(),
+        })
       }
       this.validated = true
     },

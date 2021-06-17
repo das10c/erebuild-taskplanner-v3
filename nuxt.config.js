@@ -25,7 +25,10 @@ export default {
       ...config.icons.map((href) => ({ rel: 'stylesheet', href })),
     ],
   },
-
+  router: {
+    middleware: 'logging',
+  },
+  middleware: ['logging'],
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ['~/assets/scss/theme.scss'],
 

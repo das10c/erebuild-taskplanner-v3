@@ -189,11 +189,25 @@ export default {
         memberIndex,
         propertyKey,
       })
+      this.$store.commit('setInteractions', {
+        type: 'collectible.member.property',
+        data: this.collectibles[itemIndex].members[memberIndex].properties[
+          propertyKey
+        ],
+        status: 'completed',
+        timestamp: Date.now(),
+      })
     },
     checkProperty(itemIndex, propertyKey) {
       this.$store.commit('collecting/checkProperty', {
         itemIndex,
         propertyKey,
+      })
+      this.$store.commit('setInteractions', {
+        type: 'collectible.property',
+        data: this.collectibles[itemIndex].properties[propertyKey],
+        status: 'completed',
+        timestamp: Date.now(),
       })
     },
     // Feeding each collectible item's member data to QuestionPrompt component
