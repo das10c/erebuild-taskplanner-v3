@@ -121,12 +121,12 @@ export default {
         this.sendOpenLogs(userEmail, this.gameLevel)
       } else if (event.data.status === 'CLOSE') {
         this.sendCloseLogs(userEmail, this.gameLevel)
-        const data = {
-          user_token: userEmail,
-          game_level: this.gameLevel,
-          data: this.$store.state.interactions,
-        }
-        this.sendTaskPlannerRecords(data)
+        // const data = {
+        //   user_token: userEmail,
+        //   game_level: this.gameLevel,
+        //   data: this.$store.state.interactions,
+        // }
+        // this.sendTaskPlannerRecords(data)
       }
     },
   },
