@@ -91,7 +91,7 @@ export default {
     },
     async sendTaskPlannerRecords(data) {
       const request = new Request(
-        'https://mileresearch.coe.fsu.edu/taskplanner/analytics/panel/save',
+        'https://mileresearch.coe.fsu.edu/taskplanner/analytics/panel/save/',
         {
           method: 'POST',
           mode: 'cors',
