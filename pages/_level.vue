@@ -74,24 +74,20 @@ export default {
   methods: {
     getHeaders() {
       return {
-        'X-CSRFToken': this.getCookie('csrftoken'),
-        credentials: 'same-origin',
+        // 'X-CSRFToken': Cookies.getCookie('csrftoken'),
+        // credentials: 'same-origin',
         Accept: 'application/json',
         'X-Requested-With': 'XMLHttpRequest',
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Headers':
-          'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With',
+        // 'Access-Control-Allow-Headers':
+        //   'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With',
       }
     },
     async sendOpenLogs(userToken, gameLevel) {
-      return await this.$axios.get(`/panel/open/${gameLevel}/${userToken}`, {
-        headers: this.getHeaders,
-      })
+      return await this.$axios.get(`/panel/open/${gameLevel}/${userToken}`)
     },
     async sendCloseLogs(userToken, gameLevel) {
-      return await this.$axios.get(`/panel/close/${gameLevel}/${userToken}`, {
-        headers: this.getHeaders,
-      })
+      return await this.$axios.get(`/panel/close/${gameLevel}/${userToken}`)
     },
     async sendTaskPlannerRecords(data) {
       return await this.$axios.post(`/panel/save/`, JSON.stringify(data), {
@@ -121,12 +117,12 @@ export default {
         this.sendOpenLogs(userEmail, this.gameLevel)
       } else if (event.data.status === 'CLOSE') {
         this.sendCloseLogs(userEmail, this.gameLevel)
-        // const data = {
-        //   user_token: userEmail,
-        //   game_level: this.gameLevel,
-        //   data: this.$store.state.interactions,
-        // }
-        // this.sendTaskPlannerRecords(data)
+        const data = {
+          user_token: userEmail,
+          game_level: this.gameLevel,
+          data: this.$store.state.interactions,
+        }
+        this.sendTaskPlannerRecords(data)
       }
     },
   },
