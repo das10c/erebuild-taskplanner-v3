@@ -90,9 +90,17 @@ export default {
       return await this.$axios.get(`/panel/close/${gameLevel}/${userToken}`)
     },
     async sendTaskPlannerRecords(data) {
-      return await this.$axios.post(`/panel/save/`, JSON.stringify(data), {
-        headers: this.getHeaders,
-      })
+      const request = new Request(
+        'https://mileresearch.coe.fsu.edu/taskplanner/analytics/panel/save',
+        {
+          method: 'POST',
+          mode: 'cors',
+          cache: 'default',
+          body: JSON.stringify(data),
+        }
+      )
+      const res = await fetch(request)
+      return await res.json()
     },
     getCookie(name) {
       let cookieValue = null
