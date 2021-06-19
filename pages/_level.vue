@@ -90,7 +90,16 @@ export default {
       return await this.$axios.get(`/panel/close/${gameLevel}/${userToken}`)
     },
     async sendTaskPlannerRecords(data) {
-      return await this.$axios.post('/panel/save/', data)
+      return await this.$axios.post('/panel/save/', data, {
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          'Access-Control-Request-Method': 'POST',
+          'Access-Control-Request-Headers':
+            'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With',
+          Origin: 'https://https://erebuild-taskplanner-v3.vercel.app/',
+        },
+      })
     },
     getCookie(name) {
       let cookieValue = null
