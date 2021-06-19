@@ -90,7 +90,9 @@ export default {
       return await this.$axios.get(`/panel/close/${gameLevel}/${userToken}`)
     },
     async sendTaskPlannerRecords(data) {
-      return await this.$axios.post('/panel/save/', data)
+      return await this.$axios.post('/panel/save/', data, {
+        withCredentials: true,
+      })
     },
     sendPanelLogs(event) {
       const userEmail = event.data.user_email
