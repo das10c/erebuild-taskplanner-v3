@@ -55,20 +55,20 @@ export default {
   },
   beforeCreate() {
     const levelStr = this.$route.params.level
-    const userToken = this.$store.getters.userToken
     if (levelStr) {
       this.$store.commit('setLevel', levelStr)
-      const performance = this.getPerformanceData(userToken, levelStr)
-      if (performance) {
-        this.$store.commit('setPerformance', performance)
-      }
     }
   },
   created() {
     const levelName = this.$store.getters.level
+    const userToken = this.$store.getters.userToken
     const actions = this.$store.getters['data/planners'](levelName)
+    const performance = this.getPerformanceData(userToken, levelName)
     if (levelName) this.gameLevel = levelName
     if (actions.length > 0) this.actions = actions
+    if (performance) {
+      this.$store.commit('setPerformance', performance)
+    }
   },
   beforeMount() {
     window.addEventListener('message', this.sendPanelLogs)
