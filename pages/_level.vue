@@ -8,7 +8,7 @@
       <v-spacer></v-spacer>
       <v-icon color="white">mdi-account-circle-outline</v-icon>
       <span class="white--text font-weight-medium"
-        >{{ userToken }} | {{ performance.failedTrials }}</span
+        >{{ userToken }} | {{ performance.longerThanAvg }}</span
       >
     </v-system-bar>
     <v-navigation-drawer app permanent width="90">
