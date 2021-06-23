@@ -28,7 +28,7 @@
         <!--        When the type of collectible items is family. -->
         <template v-if="item.type === 'group'" #back>
           <template v-for="(member, mIdx) in item.members">
-            <div :key="'div-' + mIdx" class="d-flex">
+            <div :key="'div-' + mIdx">
               <question-prompt
                 v-bind="feedMemberLevel(idx, mIdx, member.properties.unitSpace)"
                 @proceeded="checkMemberProperty(idx, mIdx, 'unitSpace')"
@@ -47,7 +47,7 @@
               </question-prompt>
             </div>
           </template>
-          <div class="d-flex">
+          <div>
             <question-prompt
               v-bind="feedOccupantLevel(idx, item.properties.unitSpace)"
               @proceeded="checkProperty(idx, 'unitSpace')"
@@ -73,7 +73,7 @@
           <!--Area (floor space) = Length * Width -->
           <template v-if="item.type === 'prefab building'">
             <template v-for="(pVal, pKey, pIdx) in item.properties">
-              <div :key="'div-' + pIdx" class="d-flex">
+              <div :key="'div-' + pIdx">
                 <question-prompt
                   v-bind="feedDwellingProperty(item, pVal)"
                   @proceeded="checkProperty(idx, pKey)"
@@ -94,7 +94,7 @@
           <!--        When the type of collectible items is individual occupant. -->
           <template v-else-if="item.type === 'individual'">
             <template v-for="(pVal, pKey, pIdx) in item.properties">
-              <div :key="'div-' + pIdx" class="d-flex">
+              <div :key="'div-' + pIdx">
                 <question-prompt
                   v-bind="feedOccupantLevel(idx, pVal)"
                   @proceeded="checkProperty(idx, pKey)"
@@ -115,7 +115,7 @@
           <!--        When the type of collectible items is building block. -->
           <template v-else-if="item.type === 'building block'">
             <template v-for="(pVal, pKey, pIdx) in item.properties">
-              <div :key="'div-' + pIdx" class="d-flex">
+              <div :key="'div-' + pIdx">
                 <question-prompt
                   v-bind="feedBlockProperty(item, pVal, pKey)"
                   @proceeded="checkProperty(idx, pKey)"
@@ -136,7 +136,7 @@
           <!--        When the type of collectible items is fence. -->
           <template v-else-if="item.type === 'fence'">
             <template v-for="(pVal, pKey, pIdx) in item.properties">
-              <div :key="'div-' + pIdx" class="d-flex">
+              <div :key="'div-' + pIdx">
                 <question-prompt
                   v-bind="feedFenceProperty(item, pVal, pKey)"
                   @proceeded="checkProperty(idx, pKey)"

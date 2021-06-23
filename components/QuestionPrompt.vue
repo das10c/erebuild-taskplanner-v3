@@ -1,124 +1,135 @@
 <template>
-  <v-dialog v-model="dialog" max-width="600px" persistent>
-    <template v-if="activator" #activator="{ on, attrs }">
-      <v-btn
-        class="ma-2"
-        :color="activator.color"
-        v-bind="attrs"
-        dark
-        v-on="on"
-      >
-        {{ activator.title }}
-      </v-btn>
-    </template>
-    <template v-else #activator="{ on, attrs }">
-      <slot name="activator" :on="on" :attrs="attrs"></slot>
-    </template>
-    <v-card>
-      <v-card-title class="subtitle-1 text--secondary light-blue lighten-4">
-        {{ title }}
-      </v-card-title>
-      <v-divider></v-divider>
-      <v-card-text>
-        <v-container>
-          <v-row class="pt-2 text--primary text-body-1 font-weight-bold">
-            {{ question | capitalize }}
-          </v-row>
-          <v-row>
-            <v-col cols="2">
-              <v-btn v-if="hasHint" color="error" fab small>
-                <v-icon>mdi-information-outline</v-icon>
-              </v-btn>
-            </v-col>
-            <v-col cols="8" class="pb-0">
-              <template v-if="inputType === 'number'">
-                <v-text-field
-                  v-model="userInput"
-                  type="number"
-                  :rules="rules"
-                  label="Please enter your answer"
-                  :hint="tip"
-                  :disabled="completed"
-                  outlined
+  <div class="d-flex">
+    <v-dialog v-model="dialog" max-width="600px" persistent>
+      <template v-if="activator" #activator="{ on, attrs }">
+        <v-btn
+          class="ma-2"
+          :color="activator.color"
+          v-bind="attrs"
+          dark
+          v-on="on"
+        >
+          {{ activator.title }}
+        </v-btn>
+      </template>
+      <template v-else #activator="{ on, attrs }">
+        <slot name="activator" :on="on" :attrs="attrs"></slot>
+      </template>
+      <v-card>
+        <v-card-title class="subtitle-1 text--secondary light-blue lighten-4">
+          {{ title }}
+        </v-card-title>
+        <v-divider></v-divider>
+        <v-card-text>
+          <v-container>
+            <v-row class="pt-2 text--primary text-body-1 font-weight-bold">
+              {{ question | capitalize }}
+            </v-row>
+            <v-row>
+              <v-col cols="2">
+                <v-btn
+                  v-if="hasHint"
+                  color="error"
+                  fab
+                  small
+                  @click="hintImageDialog = true"
                 >
-                  <template v-if="hasUnit" #append>
-                    <span v-html="unitMeasure"></span>
-                  </template>
-                </v-text-field>
-              </template>
-              <template v-else-if="inputType === 'radio'">
-                <v-radio-group v-model="userInput" :disabled="completed">
-                  <v-radio
+                  <v-icon>mdi-information-outline</v-icon>
+                </v-btn>
+              </v-col>
+              <v-col cols="8" class="pb-0">
+                <template v-if="inputType === 'number'">
+                  <v-text-field
+                    v-model="userInput"
+                    type="number"
+                    :rules="rules"
+                    label="Please enter your answer"
+                    :hint="tip"
+                    :disabled="completed"
+                    outlined
+                  >
+                    <template v-if="hasUnit" #append>
+                      <span v-html="unitMeasure"></span>
+                    </template>
+                  </v-text-field>
+                </template>
+                <template v-else-if="inputType === 'radio'">
+                  <v-radio-group v-model="userInput" :disabled="completed">
+                    <v-radio
+                      v-for="(item, index) in choices"
+                      :key="'radio-' + index"
+                      :label="item.label"
+                      :value="item.value"
+                    ></v-radio>
+                  </v-radio-group>
+                </template>
+                <template v-else-if="inputType === 'checkbox'">
+                  <v-checkbox
                     v-for="(item, index) in choices"
-                    :key="'radio-' + index"
+                    :key="'checkbox-' + index"
+                    v-model="userSelected"
+                    class="my-0"
                     :label="item.label"
                     :value="item.value"
-                  ></v-radio>
-                </v-radio-group>
-              </template>
-              <template v-else-if="inputType === 'checkbox'">
-                <v-checkbox
-                  v-for="(item, index) in choices"
-                  :key="'checkbox-' + index"
-                  v-model="userSelected"
-                  class="my-0"
-                  :label="item.label"
-                  :value="item.value"
-                  :readonly="completed"
-                ></v-checkbox>
-              </template>
-            </v-col>
-          </v-row>
-          <v-row>
-            <v-alert
-              :value="validFeedbackAlert"
-              class="mb-0 mx-auto"
-              transition="scale-transition"
-              type="success"
-              dense
-              >{{ validFeedback }}</v-alert
-            >
-            <v-alert
-              :value="invalidFeedbackAlert"
-              class="mb-0 mx-auto"
-              transition="scale-transition"
-              type="error"
-              dense
-              >{{ invalidFeedback }}</v-alert
-            >
-            <v-alert
-              :value="hintFeedbackAlert"
-              class="mb-0 mx-auto"
-              transition="scale-transition"
-              type="warning"
-              dense
-              >{{ hintFeedback }}</v-alert
-            >
-          </v-row>
-          <v-row v-if="hasHint">
-            <slot name="hint"></slot>
-          </v-row>
-        </v-container>
-      </v-card-text>
-      <v-divider></v-divider>
-      <v-card-actions>
-        <v-spacer></v-spacer>
-        <v-btn color="amber darken-1" @click="dialog = false">Cancel</v-btn>
-        <v-btn
-          color="light-blue lighten-1"
-          :disabled="completed"
-          @click="submit"
-          >Submit</v-btn
-        >
-        <v-btn
-          color="purple lighten-3"
-          :disabled="!completed || proceeded"
-          @click="proceed"
-          >Proceed</v-btn
-        >
-      </v-card-actions>
-    </v-card>
-  </v-dialog>
+                    :readonly="completed"
+                  ></v-checkbox>
+                </template>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-alert
+                :value="validFeedbackAlert"
+                class="mb-0 mx-auto"
+                transition="scale-transition"
+                type="success"
+                dense
+                >{{ validFeedback }}</v-alert
+              >
+              <v-alert
+                :value="invalidFeedbackAlert"
+                class="mb-0 mx-auto"
+                transition="scale-transition"
+                type="error"
+                dense
+                >{{ invalidFeedback }}</v-alert
+              >
+              <v-alert
+                :value="hintFeedbackAlert"
+                class="mb-0 mx-auto"
+                transition="scale-transition"
+                type="info"
+                dense
+                >{{ hintFeedback }}</v-alert
+              >
+            </v-row>
+            <v-row v-if="hasHint">
+              <slot name="hint"></slot>
+            </v-row>
+          </v-container>
+        </v-card-text>
+        <v-divider></v-divider>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="amber darken-1" @click="dialog = false">Cancel</v-btn>
+          <v-btn
+            color="light-blue lighten-1"
+            :disabled="completed"
+            @click="submit"
+            >Submit</v-btn
+          >
+          <v-btn
+            color="purple lighten-3"
+            :disabled="!completed || proceeded"
+            @click="proceed"
+            >Proceed</v-btn
+          >
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+    <v-dialog v-model="hintImageDialog" max-width="500px">
+      <v-img :src="hintImage" max-width="500px"></v-img>
+    </v-dialog>
+  </div>
 </template>
 
 <script>
@@ -193,10 +204,15 @@ export default {
       type: Boolean,
       default: false,
     },
+    hintImage: {
+      type: String,
+      default: '',
+    },
   },
   data() {
     return {
       dialog: false,
+      hintImageDialog: false,
       validated: false,
       errorCount: 0,
       errors: [],

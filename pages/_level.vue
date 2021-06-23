@@ -55,8 +55,13 @@ export default {
   },
   beforeCreate() {
     const levelStr = this.$route.params.level
+    const userToken = this.$store.getters.userToken
     if (levelStr) {
       this.$store.commit('setLevel', levelStr)
+      const performance = this.getPerformanceData(userToken, levelStr)
+      if (performance) {
+        this.$store.commit('setPerformance', performance)
+      }
     }
   },
   created() {
@@ -72,31 +77,39 @@ export default {
     window.removeEventListener('message', this.sendPanelLogs)
   },
   methods: {
-    getHeaders() {
-      return {
-        // 'X-CSRFToken': Cookies.getCookie('csrftoken'),
-        // credentials: 'same-origin',
-        Accept: 'application/json',
-        'X-Requested-With': 'XMLHttpRequest',
-        'Content-Type': 'application/json',
-        // 'Access-Control-Allow-Headers':
-        //   'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With',
-      }
+    async getPerformanceData(userToken, gameLevel) {
+      return await this.$axios
+        .get(
+          `https://mileresearch.coe.fsu.edu/adaptiveSupport/GetUserPerformance.php?email=${userToken}&level=${gameLevel}`
+        )
+        .then((res) => res.data)
     },
     async sendOpenLogs(userToken, gameLevel) {
-      return await this.$axios.get(`/panel/open/${gameLevel}/${userToken}`)
+      return await this.$axios.get(
+        `https://mileresearch.coe.fsu.edu/taskplanner/analytics/panel/open/${gameLevel}/${userToken}`
+      )
     },
     async sendCloseLogs(userToken, gameLevel) {
-      return await this.$axios.get(`/panel/close/${gameLevel}/${userToken}`)
+      return await this.$axios.get(
+        `https://mileresearch.coe.fsu.edu/taskplanner/analytics/panel/close/${gameLevel}/${userToken}`
+      )
     },
     async sendTaskPlannerRecords(data) {
-      return await this.$axios.post('/panel/save/', data, {
-        withCredentials: true,
-      })
+      return await this.$axios.post(
+        'https://mileresearch.coe.fsu.edu/taskplanner/analytics/panel/save/',
+        data,
+        {
+          withCredentials: true,
+        }
+      )
     },
     sendPanelLogs(event) {
       const userEmail = event.data.user_email
-      this.$store.commit('setUserToken', userEmail)
+      const userToken = this.$store.getters.userToken
+
+      if (userEmail !== userToken) {
+        this.$store.commit('setUserToken', userEmail)
+      }
 
       if (event.data.status === 'OPEN') {
         this.sendOpenLogs(userEmail, this.gameLevel)
@@ -108,6 +121,7 @@ export default {
           data: JSON.stringify(this.$store.state.interactions),
         }
         this.sendTaskPlannerRecords(data)
+        this.$store.commit('emptyInteractions')
       }
     },
   },

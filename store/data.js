@@ -4774,10 +4774,10 @@ const populateMatheValues = (matheValues, targetMeasuringUnit) => {
   return newValues
 }
 
-const buildingGoalImage = (goalType) => {
-  const lowercaseName = goalType.toLowerCase()
+const buildingImage = (buildingName) => {
+  const lowercaseName = buildingName.toLowerCase()
   const urls = {
-    length: '/images/goals/goal-length-1.png',
+    'shipping container home': '/images/building/shipping-container-home-1.png',
     area: '/images/goals/goal-area-2.png',
     surface: '/images/goals/goal-surface-1.png',
     volume: '/images/goals/goal-volume-1.png',
@@ -4882,8 +4882,9 @@ export const getters = {
 
     if (data) {
       return data.map((item) => ({
+        building: item.building,
         name: item.building.name,
-        image: buildingGoalImage(item.type),
+        image: buildingImage(item.building.name),
         checked: false,
         ...item,
       }))

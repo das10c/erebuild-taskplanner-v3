@@ -14,7 +14,20 @@
             <v-img :src="image" :alt="name" />
           </v-avatar>
           <div class="text-center mt-2">
-            <span class="font-weight-bold text-body-1">
+            <template v-if="title.length > 0">
+              <span class="font-weight-bold text-body-1 red--text">
+                {{ title[0] | uppercase }}
+                {{ title[1] | uppercase }}
+              </span>
+              <span class="font-weight-bold text-body-1">
+                {{ ' of' | uppercase }}
+              </span>
+              <br />
+              <span class="font-weight-bold text-body-1">
+                {{ title[2] | uppercase }}
+              </span>
+            </template>
+            <span v-else class="font-weight-bold text-body-1">
               {{ name | uppercase }}
             </span>
           </div>
@@ -103,6 +116,12 @@ export default {
     name: {
       type: String,
       default: '',
+    },
+    title: {
+      type: Array,
+      default() {
+        return []
+      },
     },
     extended: {
       type: Boolean,
