@@ -43,6 +43,7 @@ export default {
     gameLevel: '',
     actions: [],
     taskPlannerEvents: [],
+    opened: 0,
   }),
   computed: {
     tabs() {
@@ -111,7 +112,7 @@ export default {
       let userEmail = event.data.user_email
       const levelName = this.$store.getters.level
       const userToken = this.$store.getters.userToken
-      let performance = this.$store.getters.performance
+      let performance
 
       if (userEmail !== '' && userEmail !== userToken) {
         this.$store.commit('setUserToken', userEmail)
@@ -119,17 +120,18 @@ export default {
         userEmail = userToken
       }
 
-      if (Object.keys(performance).length === 0) {
+      if (this.opened === 0) {
         performance = this.getPerformanceData(userEmail, levelName)
+        this.$store.commit('setPerformance', performance)
         // eslint-disable-next-line no-console
         console.log(performance)
-        if (performance) {
-          this.$store.commit('setPerformance', performance)
-        }
+      } else {
+        performance = this.$store.getters.performance
       }
 
       if (event.data.status === 'OPEN') {
         this.sendOpenLogs(userEmail, this.gameLevel)
+        this.opened++
       } else if (event.data.status === 'CLOSE') {
         this.sendCloseLogs(userEmail, this.gameLevel)
         const data = {
