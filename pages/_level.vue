@@ -117,6 +117,8 @@ export default {
 
       if (Object.keys(performance).length === 0) {
         performance = this.getPerformanceData(userEmail, levelName)
+        // eslint-disable-next-line no-console
+        console.log(performance)
         if (performance) {
           this.$store.commit('setPerformance', performance)
         }
