@@ -1,7 +1,7 @@
 export const state = () => ({
   userToken: '',
   level: '',
-  performanceData: {},
+  performance: {},
   tabs: [],
   interactions: [],
 })
@@ -17,7 +17,16 @@ export const getters = {
     return state.userToken
   },
   performance(state) {
-    return state.performanceData
+    return state.performance
+  },
+  competency(state) {
+    const failedTrials = state.performance.failedTrials
+    const longerThanAvg = state.performance.longerThanAvg
+    if (failedTrials >= 3 || longerThanAvg === 1) {
+      return 'beginner'
+    } else {
+      return 'intermediate'
+    }
   },
 }
 
@@ -32,7 +41,7 @@ export const mutations = {
     if (userTokenStr) state.userToken = userTokenStr
   },
   setPerformance(state, performanceData) {
-    if (performanceData) state.performanceData = performanceData
+    if (performanceData) state.performance = performanceData
   },
   setInteractions(state, data) {
     state.interactions.push(data)

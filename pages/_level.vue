@@ -7,7 +7,9 @@
       </span>
       <v-spacer></v-spacer>
       <v-icon color="white">mdi-account-circle-outline</v-icon>
-      <span class="white--text font-weight-medium">{{ userToken }}</span>
+      <span class="white--text font-weight-medium"
+        >{{ userToken }} | {{ competency }}</span
+      >
     </v-system-bar>
     <v-navigation-drawer app permanent width="90">
       <v-list dense nav class="pa-0 mt-8">
@@ -52,6 +54,9 @@ export default {
     userToken() {
       return this.$store.getters.userToken
     },
+    competency() {
+      return this.$store.getters.competency
+    },
   },
   beforeCreate() {
     const levelStr = this.$route.params.level
@@ -61,14 +66,9 @@ export default {
   },
   created() {
     const levelName = this.$store.getters.level
-    const userToken = this.$store.getters.userToken
     const actions = this.$store.getters['data/planners'](levelName)
-    const performance = this.getPerformanceData(userToken, levelName)
     if (levelName) this.gameLevel = levelName
     if (actions.length > 0) this.actions = actions
-    if (performance) {
-      this.$store.commit('setPerformance', performance)
-    }
   },
   beforeMount() {
     window.addEventListener('message', this.sendPanelLogs)
@@ -104,11 +104,22 @@ export default {
       )
     },
     sendPanelLogs(event) {
-      const userEmail = event.data.user_email
+      let userEmail = event.data.user_email
+      const levelName = this.$store.getters.level
       const userToken = this.$store.getters.userToken
+      let performance = this.$store.getters.performance
 
-      if (userEmail !== userToken) {
+      if (userEmail !== '' && userEmail !== userToken) {
         this.$store.commit('setUserToken', userEmail)
+      } else {
+        userEmail = userToken
+      }
+
+      if (Object.keys(performance).length === 0) {
+        performance = this.getPerformanceData(userEmail, levelName)
+        if (performance) {
+          this.$store.commit('setPerformance', performance)
+        }
       }
 
       if (event.data.status === 'OPEN') {
