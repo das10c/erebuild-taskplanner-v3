@@ -8,7 +8,7 @@
       <v-spacer></v-spacer>
       <v-icon color="white">mdi-account-circle-outline</v-icon>
       <span class="white--text font-weight-medium"
-        >{{ userToken }} | {{ competency }}</span
+        >{{ userToken }} | {{ performance.failedTrials }}</span
       >
     </v-system-bar>
     <v-navigation-drawer app permanent width="90">
@@ -57,17 +57,21 @@ export default {
     competency() {
       return this.$store.getters.competency
     },
+    performance() {
+      return this.$store.getters.performance
+    },
   },
   beforeCreate() {
-    const levelStr = this.$route.params.level
-    if (levelStr) {
-      this.$store.commit('setLevel', levelStr)
-    }
+    // const levelStr = this.$route.params.level
+    // if (levelStr) {
+    //   this.$store.commit('setLevel', levelStr)
+    // }
   },
   created() {
-    const levelName = this.$store.getters.level
-    const actions = this.$store.getters['data/planners'](levelName)
-    if (levelName) this.gameLevel = levelName
+    const levelStr = this.$route.params.level
+    if (levelStr) this.$store.commit('setLevel', levelStr)
+    const actions = this.$store.getters['data/planners'](levelStr)
+    if (levelStr) this.gameLevel = levelStr
     if (actions.length > 0) this.actions = actions
   },
   beforeMount() {
