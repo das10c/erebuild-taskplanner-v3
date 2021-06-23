@@ -87,7 +87,7 @@ export default {
         .get(
           `https://mileresearch.coe.fsu.edu/adaptiveSupport/GetUserPerformance.php?email=${userToken}&level=${gameLevel}`
         )
-        .then((res) => res.data)
+        .then((res) => this.$store.commit('setPerformance', res.data))
     },
     async sendOpenLogs(userToken, gameLevel) {
       return await this.$axios.get(
@@ -112,7 +112,6 @@ export default {
       let userEmail = event.data.user_email
       const levelName = this.$store.getters.level
       const userToken = this.$store.getters.userToken
-      let performance
 
       if (userEmail !== '' && userEmail !== userToken) {
         this.$store.commit('setUserToken', userEmail)
@@ -121,12 +120,8 @@ export default {
       }
 
       if (this.opened === 0) {
-        performance = this.getPerformanceData(userEmail, levelName)
-        this.$store.commit('setPerformance', performance)
+        this.getPerformanceData(userEmail, levelName)
         // eslint-disable-next-line no-console
-        console.log(performance)
-      } else {
-        performance = this.$store.getters.performance
       }
 
       if (event.data.status === 'OPEN') {
