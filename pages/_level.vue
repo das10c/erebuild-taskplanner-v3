@@ -111,18 +111,11 @@ export default {
     sendPanelLogs(event) {
       let userEmail = event.data.user_email
       const levelName = this.$store.getters.level
-      const userToken = this.$store.getters.userToken
 
-      if (userEmail !== '' && userEmail !== userToken) {
-        this.$store.commit('setUserToken', userEmail)
-      } else {
-        userEmail = userToken
-      }
+      if (userEmail) this.$store.commit('setUserToken', userEmail)
+      else userEmail = this.$store.getters.userToken
 
-      if (this.opened === 0) {
-        this.getPerformanceData(userEmail, levelName)
-        // eslint-disable-next-line no-console
-      }
+      if (userEmail) this.getPerformanceData(userEmail, levelName)
 
       if (event.data.status === 'OPEN') {
         this.sendOpenLogs(userEmail, this.gameLevel)
