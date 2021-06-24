@@ -11,7 +11,7 @@
       >
         <template v-if="occupant.type === 'group'" #front>
           <template v-for="(member, mIdx) in occupant.members">
-            <div :key="'div-' + mIdx" class="d-flex">
+            <div :key="'div-' + mIdx">
               <question-prompt
                 v-bind="feedMemberData(oIdx, mIdx, member.properties.unitSpace)"
                 @proceeded="checkMemberProperty(oIdx, mIdx, 'unitSpace')"
@@ -37,7 +37,7 @@
         </template>
         <template v-else #front>
           <template v-for="(pVal, pKey, pIdx) in occupant.properties">
-            <div :key="'div-' + pIdx" class="d-flex">
+            <div :key="'div-' + pIdx">
               <question-prompt
                 v-bind="feedOccupantData(oIdx, pVal)"
                 @proceeded="checkProperty(oIdx, pKey)"
@@ -61,7 +61,7 @@
         </template>
         <template v-if="occupant.type === 'group'" #back>
           <template v-for="(pVal, pKey, pIdx) in occupant.properties">
-            <div :key="'div-' + pIdx" class="d-flex">
+            <div :key="'div-' + pIdx">
               <question-prompt
                 v-bind="feedOccupantData(oIdx, pVal)"
                 @proceeded="checkProperty(oIdx, pKey)"
