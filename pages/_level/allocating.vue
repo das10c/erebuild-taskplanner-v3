@@ -61,9 +61,6 @@ export default {
     competency() {
       return this.$store.getters.competency
     },
-    occupants() {
-      return this.$store.getters.getOccupants
-    },
   },
   watch: {
     competency(value) {
@@ -128,7 +125,7 @@ export default {
     resetOccupants() {
       const competency = this.$store.getters.competency
       // const occupantLength = this.$store.getters['allocating/occupantsLength']
-      const occupant = this.occupants[2]
+      const occupant = this.$store.state.allocating.occupants[2]
       if (competency === 'beginner') {
         this.$store.commit('allocating/checkMemberProperty', {
           occupantIndex: 2,
