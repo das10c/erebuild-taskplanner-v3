@@ -12,7 +12,7 @@
         <template #front>
           <template v-for="(mVal, mKey, mIdx) in dwelling.mathValues">
             <template v-if="mVal.required">
-              <div :key="'div-' + mIdx" class="d-flex">
+              <div :key="'div-' + mIdx">
                 <question-prompt
                   v-bind="feedMathValueData(dIdx, mVal)"
                   @proceeded="checkMathValues(dIdx, mKey)"
@@ -32,7 +32,7 @@
         <template #back>
           <template v-for="(pVal, pKey, pIdx) in dwelling.properties">
             <template v-if="pVal.required">
-              <div :key="'div-' + pIdx" class="d-flex">
+              <div :key="'div-' + pIdx">
                 <question-prompt
                   v-bind="feedPropertyData(dIdx, pVal, pKey)"
                   @proceeded="checkProperty(dIdx, pKey)"

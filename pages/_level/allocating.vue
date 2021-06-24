@@ -58,10 +58,19 @@ export default {
     tabs() {
       return this.$store.state.allocating.tabs
     },
+    competency() {
+      return this.$store.getters.competency
+    },
+  },
+  watch: {
+    competency(value) {
+      if (value === 'beginner') {
+        this.resetOccupants()
+      }
+    },
   },
   created() {
     const level = this.$store.state.level
-    const competency = this.$store.getters.competency
     const occupants = this.$store.getters['data/occupants'](level)
     const dwellings = this.$store.getters['data/dwellings'](level)
     const tabs = [
@@ -89,36 +98,45 @@ export default {
     this.$store.commit('allocating/setOccupants', occupants)
     this.$store.commit('allocating/setDwellings', dwellings)
     this.$store.commit('allocating/setTabs', tabs)
-
-    const occupantLength = this.$store.getters['allocating/occupantsLength']
-    const memberLength = this.$store.getters['allocating/occupantMemberLength']
-    if (memberLength !== 0) {
-      for (let i = 0; i < occupantLength; i++) {
-        this.$store.commit('allocating/checkMemberProperty', {
-          occupantIndex: i,
-          memberIndex: 0,
-          propertyKey: 'unitSpace',
-        })
-        for (let j = 0; j < memberLength; j++) {
+    this.setOccupants()
+  },
+  methods: {
+    setOccupants() {
+      const occupantLength = this.$store.getters['allocating/occupantsLength']
+      const memberLength =
+        this.$store.getters['allocating/occupantMemberLength']
+      if (memberLength !== 0) {
+        for (let i = 0; i < occupantLength; i++) {
           this.$store.commit('allocating/checkMemberProperty', {
             occupantIndex: i,
-            memberIndex: j,
-            propertyKey: 'count',
-          })
-        }
-      }
-    }
-    if (competency === 'beginner') {
-      for (let i = 0; i < occupantLength; i++) {
-        if (i !== 2) {
-          this.$store.commit('allocating/checkMemberProperty', {
-            occupantIndex: i,
-            memberIndex: 1,
+            memberIndex: 0,
             propertyKey: 'unitSpace',
           })
+          for (let j = 0; j < memberLength; j++) {
+            this.$store.commit('allocating/checkMemberProperty', {
+              occupantIndex: i,
+              memberIndex: j,
+              propertyKey: 'count',
+            })
+          }
         }
       }
-    }
+    },
+    resetOccupants() {
+      const competency = this.$store.getters.competency
+      const occupantLength = this.$store.getters['allocating/occupantsLength']
+      if (competency === 'beginner') {
+        for (let i = 0; i < occupantLength; i++) {
+          if (i !== 2) {
+            this.$store.commit('allocating/checkMemberProperty', {
+              occupantIndex: i,
+              memberIndex: 1,
+              propertyKey: 'unitSpace',
+            })
+          }
+        }
+      }
+    },
   },
 }
 </script>
