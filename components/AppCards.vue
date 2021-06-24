@@ -1,5 +1,9 @@
 <template>
-  <v-card class="h-full d-flex flex-column" elevation="5">
+  <v-card
+    class="h-full d-flex flex-column"
+    :color="checked ? color : ''"
+    elevation="5"
+  >
     <v-badge
       :color="checked ? 'primary' : ''"
       :icon="checked ? 'mdi-check' : ''"
