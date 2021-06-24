@@ -58,6 +58,16 @@ export default {
     tabs() {
       return this.$store.state.collecting.tabs
     },
+    competency() {
+      return this.$store.getters.competency
+    },
+  },
+  watch: {
+    competency(value) {
+      if (value === 'beginner') {
+        this.resetCollectibles()
+      }
+    },
   },
   created() {
     const level = this.$store.state.level
@@ -71,24 +81,44 @@ export default {
     ]
     this.$store.commit('collecting/setCollectibles', collectibles)
     this.$store.commit('collecting/setTabs', tabs)
-    const itemLength = this.$store.getters['collecting/collectiblesLength']
-    const memberLength = this.$store.getters['collecting/occupantMemberLength']
-    if (memberLength !== 0) {
-      for (let i = 0; i < itemLength; i++) {
-        this.$store.commit('collecting/checkMemberProperty', {
-          itemIndex: i,
-          memberIndex: 0,
-          propertyKey: 'unitSpace',
-        })
-        for (let j = 0; j < memberLength; j++) {
+    this.setCollectibles()
+  },
+  methods: {
+    setCollectibles() {
+      const itemLength = this.$store.getters['collecting/collectiblesLength']
+      const memberLength =
+        this.$store.getters['collecting/occupantMemberLength']
+      if (memberLength !== 0) {
+        for (let i = 0; i < itemLength; i++) {
           this.$store.commit('collecting/checkMemberProperty', {
             itemIndex: i,
-            memberIndex: j,
-            propertyKey: 'count',
+            memberIndex: 0,
+            propertyKey: 'unitSpace',
           })
+          for (let j = 0; j < memberLength; j++) {
+            this.$store.commit('collecting/checkMemberProperty', {
+              itemIndex: i,
+              memberIndex: j,
+              propertyKey: 'count',
+            })
+          }
         }
       }
-    }
+    },
+    resetCollectibles() {
+      const collectibles = this.$store.state.collecting.collectibles
+      if (collectibles[0].type === 'group') {
+        this.$store.commit('collecting/checkMemberProperty', {
+          itemIndex: 2,
+          memberIndex: 1,
+          propertyKey: 'unitSpace',
+        })
+        this.$store.commit('collecting/checkProperty', {
+          itemIndex: 2,
+          propertyKey: 'unitSpace',
+        })
+      }
+    },
   },
 }
 </script>
