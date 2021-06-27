@@ -49,87 +49,21 @@ export const state = () => ({
       ],
       buildings: [
         {
-          name: 'phase 1',
-          steps: [
+          name: 'shipping container home',
+          count: 1,
+          type: 'whole building',
+          value: 324,
+          goal: 'volume',
+          measuringUnit: 'm3',
+          children: [
             {
-              card: {
-                text: 'step 1 - identifying full volume to be filled',
-                title: 'phase 1: identifying your goal',
-              },
-              name: 'full volume',
-              modal: {
-                show: false,
-                answer: 324,
-                has_unit: true,
-                question:
-                  'What should the full volume of the shipping container home be?',
-                image_src: 'img/building/islandbuild01/phase1_step1.png',
-                image_added: true,
-                hint_feedback:
-                  'Return to the game and try identifying its length, width, and height, based on the information given.',
-                measuring_unit: 'm3',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
-            },
-          ],
-          validated: false,
-        },
-        {
-          name: 'phase 2',
-          steps: [
-            {
-              card: {
-                text: 'identifying volume of one shipping container',
-                title: 'phase 2: decomposition',
-              },
               name: 'shipping container',
-              modal: {
-                show: false,
-                answer: 54,
-                has_unit: true,
-                question: 'what is the volume of one shipping container?',
-                image_src: '',
-                image_added: false,
-                hint_feedback: 'volume = (length) x (width) x (height)',
-                measuring_unit: 'm3',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
+              count: 6,
+              type: 'module',
+              value: 54,
+              hasHint: false,
             },
           ],
-          validated: false,
-        },
-        {
-          name: 'phase 3',
-          steps: [
-            {
-              card: {
-                text: 'Estimating how many shipping containers needed to build the shipping container home',
-                title: 'phase 3: planning',
-              },
-              name: 'shipping container home',
-              modal: {
-                show: false,
-                answer: 6,
-                has_unit: false,
-                question:
-                  'How many shipping containers do you need to build the shipping container home?',
-                hint_feedback:
-                  'Think about how many shipping containers would be needed to fill the full volume of the shipping container home.',
-                measuring_unit: '',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
-            },
-          ],
-          validated: false,
         },
       ],
     },
@@ -175,92 +109,25 @@ export const state = () => ({
             },
           },
           measuringUnit: 'm3',
-          value: 720,
+          value: 600,
         },
       ],
       buildings: [
         {
-          name: 'phase 1',
-          steps: [
+          name: 'shipping container home',
+          count: 1,
+          type: 'whole building',
+          value: 600,
+          goal: 'volume',
+          measuringUnit: 'm3',
+          children: [
             {
-              card: {
-                text: 'step 1 - identifying full volume to be filled',
-                title: 'phase 1: identifying your goal',
-              },
-              name: 'full volume',
-              modal: {
-                show: false,
-                answer: 600,
-                has_unit: true,
-                question:
-                  'What should the full volume of the shipping container home be?',
-                image_src: 'img/building/islandbuild02/phase1_step1.png',
-                image_added: true,
-                hint_feedback:
-                  'Return to the game and try identifying its length, width, and height, based on the information given.',
-                measuring_unit: 'm3',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
-            },
-          ],
-          validated: false,
-        },
-        {
-          name: 'phase 2',
-          steps: [
-            {
-              card: {
-                text: 'identifying volume of one shipping container',
-                title: 'phase 2: decomposition',
-              },
               name: 'shipping container',
-              modal: {
-                show: false,
-                answer: 120,
-                has_unit: true,
-                question: 'what is the volume of one shipping container?',
-                image_src: '',
-                image_added: false,
-                hint_feedback: 'volume = (length) x (width) x (height)',
-                measuring_unit: 'm3',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
+              count: 5,
+              type: 'building block',
+              value: 120,
             },
           ],
-          validated: false,
-        },
-        {
-          name: 'phase 3',
-          steps: [
-            {
-              card: {
-                text: 'Estimating how many shipping containers needed to build the shipping container home',
-                title: 'phase 3: planning',
-              },
-              name: 'shipping container home',
-              modal: {
-                show: false,
-                answer: 5,
-                has_unit: false,
-                question:
-                  'How many shipping containers do you need to build the shipping container home?',
-                hint_feedback:
-                  'Think about how many shipping containers would be needed to fill the full volume of the shipping container home.',
-                measuring_unit: '',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
-            },
-          ],
-          validated: false,
         },
       ],
     },
@@ -311,197 +178,59 @@ export const state = () => ({
       ],
       buildings: [
         {
-          name: 'phase 1',
-          steps: [
+          name: 'adobe house',
+          count: 1,
+          type: 'whole building',
+          value: 104,
+          goal: 'surface area',
+          measuringUnit: 'm2',
+          children: [
             {
-              card: {
-                text: 'step 1 - identifying total surface area to be covered',
-                title: 'phase 1: identifying your goal',
-              },
-              name: 'total surface area',
-              modal: {
-                show: false,
-                answer: 104,
-                has_unit: true,
-                question:
-                  'What should the total surface area of the adobe house be?',
-                image_src: 'img/building/desertbuild01/phase1_step1.png',
-                image_added: true,
-                hint_feedback:
-                  'Return to the game and try identifying its length, width, and height, based on the information given.',
-                measuring_unit: 'm2',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
-            },
-          ],
-          validated: false,
-        },
-        {
-          name: 'phase 2',
-          steps: [
-            {
-              card: {
-                text: 'large walls - identifying structure of the existing building',
-                title: 'phase 2: decomposition',
-              },
-              name: 'large wall',
-              modal: {
-                show: false,
-                answer: 2,
-                has_unit: false,
-                question:
-                  'How many large walls would be needed to build the adobe house?',
-                image_src: 'img/building/desertbuild01/phase2_step1.png',
-                image_added: true,
-                hint_feedback:
-                  'Return to the game and try counting them, if you do not know.',
-                measuring_unit: '',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
+              name: '6X4 wall',
+              count: 2,
+              type: 'module',
+              value: 24,
+              hasHint: true,
+              children: [
+                {
+                  name: 'clay block',
+                  count: 6,
+                  type: 'building block',
+                  value: 4,
+                },
+              ],
             },
             {
-              card: {
-                text: 'small wall - identifying structure of the existing building',
-                title: 'phase 2: decomposition',
-              },
-              name: 'small wall',
-              modal: {
-                show: false,
-                answer: 2,
-                has_unit: false,
-                question:
-                  'How many small walls would be needed to build the adobe house?',
-                image_src: 'img/building/desertbuild01/phase2_step2.png',
-                image_added: true,
-                hint_feedback:
-                  'Return to the game and try counting them, if you do not know.',
-                measuring_unit: '',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
+              name: '4X4 wall',
+              count: 2,
+              type: 'module',
+              value: 16,
+              hasHint: true,
+              children: [
+                {
+                  name: 'clay block',
+                  count: 4,
+                  type: 'building block',
+                  value: 4,
+                },
+              ],
             },
             {
-              card: {
-                text: 'roof - identifying structure of the existing building',
-                title: 'phase 2: decomposition',
-              },
               name: 'roof',
-              modal: {
-                show: false,
-                answer: 1,
-                has_unit: false,
-                question:
-                  'How many roofs would be needed to build the adobe house?',
-                image_src: 'img/building/desertbuild01/phase2_step3.png',
-                image_added: true,
-                hint_feedback:
-                  'Return to the game and try counting them, if you do not know.',
-                measuring_unit: '',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
+              count: 1,
+              type: 'module',
+              value: 24,
+              hasHint: true,
+              children: [
+                {
+                  name: 'clay block',
+                  count: 6,
+                  type: 'building block',
+                  value: 4,
+                },
+              ],
             },
           ],
-          validated: false,
-        },
-        {
-          name: 'phase 3',
-          steps: [
-            {
-              card: {
-                text: 'Estimating how many clay blocks needed to build a large wall',
-                title: 'phase 3: planning',
-              },
-              name: 'large wall',
-              modal: {
-                show: false,
-                answer: 6,
-                has_unit: false,
-                question:
-                  'How many clay blocks do you need to build a large wall?',
-                hint_feedback:
-                  'Try counting how many clay blocks are included in a large wall.',
-                measuring_unit: '',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
-            },
-            {
-              card: {
-                text: 'Estimating how many clay blocks needed to build a small wall',
-                title: 'phase 3: planning',
-              },
-              name: 'small wall',
-              modal: {
-                show: false,
-                answer: 4,
-                has_unit: false,
-                question:
-                  'How many clay blocks do you need to build a small wall?',
-                hint_feedback:
-                  'Try counting how many clay blocks are included in a small wall.',
-                measuring_unit: '',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
-            },
-            {
-              card: {
-                text: 'Estimating how many clay blocks needed to build a roof',
-                title: 'phase 3: planning',
-              },
-              name: 'roof',
-              modal: {
-                show: false,
-                answer: 6,
-                has_unit: false,
-                question: 'How many clay blocks do you need to build a roof?',
-                hint_feedback:
-                  'Try counting how many clay blocks are included in a roof.',
-                measuring_unit: '',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
-            },
-            {
-              card: {
-                text: 'Estimating how many clay blocks needed to build the adobe house',
-                title: 'phase 3: planning',
-              },
-              name: 'adobe house',
-              modal: {
-                show: false,
-                answer: 26,
-                has_unit: false,
-                question:
-                  'How many clay blocks do you need to build the adobe house?',
-                hint_feedback:
-                  'Think about how many large walls, small walls, and roofs are included in the adobe house.',
-                measuring_unit: '',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
-            },
-          ],
-          validated: false,
         },
       ],
     },
@@ -551,201 +280,61 @@ export const state = () => ({
         },
       ],
       buildings: [
-        [
-          {
-            name: 'phase 1',
-            steps: [
-              {
-                card: {
-                  text: 'step 1 - identifying total surface area to be covered',
-                  title: 'phase 1: identifying your goal',
+        {
+          name: 'adobe house',
+          count: 1,
+          type: 'whole building',
+          value: 104,
+          goal: 'surface area',
+          measuringUnit: 'm2',
+          children: [
+            {
+              name: '6X4 wall',
+              count: 2,
+              type: 'module',
+              value: 24,
+              hasHint: true,
+              children: [
+                {
+                  name: 'clay block',
+                  count: 6,
+                  type: 'building block',
+                  value: 4,
                 },
-                name: 'total surface area',
-                modal: {
-                  show: false,
-                  answer: 104,
-                  has_unit: true,
-                  question:
-                    'What should the total surface area of the adobe house be?',
-                  image_src: 'img/building/desertbuild02/phase1_step1.png',
-                  image_added: true,
-                  hint_feedback:
-                    'Return to the game and try identifying its length, width, and height, based on the information given.',
-                  measuring_unit: 'm2',
-                  valid_feedback:
-                    'Great job! Please click on PROCEED button to move on to the next step.',
-                  invalid_feedback: "That's not correct. Please try again.",
+              ],
+            },
+            {
+              name: '4X4 wall',
+              count: 2,
+              type: 'module',
+              value: 16,
+              hasHint: true,
+              children: [
+                {
+                  name: 'clay block',
+                  count: 4,
+                  type: 'building block',
+                  value: 4,
                 },
-                checked: false,
-              },
-            ],
-            validated: false,
-          },
-          {
-            name: 'phase 2',
-            steps: [
-              {
-                card: {
-                  text: 'large walls - identifying structure of the existing building',
-                  title: 'phase 2: decomposition',
+              ],
+            },
+            {
+              name: 'roof',
+              count: 1,
+              type: 'module',
+              value: 24,
+              hasHint: true,
+              children: [
+                {
+                  name: 'clay block',
+                  count: 6,
+                  type: 'building block',
+                  value: 4,
                 },
-                name: 'large wall',
-                modal: {
-                  show: false,
-                  answer: 2,
-                  has_unit: false,
-                  question:
-                    'How many large walls would be needed to build the adobe house?',
-                  image_src: 'img/building/desertbuild02/phase2_step1.png',
-                  image_added: true,
-                  hint_feedback:
-                    'Return to the game and try counting them, if you do not know.',
-                  measuring_unit: '',
-                  valid_feedback:
-                    'Great job! Please click on PROCEED button to move on to the next step.',
-                  invalid_feedback: "That's not correct. Please try again.",
-                },
-                checked: false,
-              },
-              {
-                card: {
-                  text: 'small wall - identifying structure of the existing building',
-                  title: 'phase 2: decomposition',
-                },
-                name: 'small wall',
-                modal: {
-                  show: false,
-                  answer: 2,
-                  has_unit: false,
-                  question:
-                    'How many small walls would be needed to build the adobe house?',
-                  image_src: 'img/building/desertbuild02/phase2_step2.png',
-                  image_added: true,
-                  hint_feedback:
-                    'Return to the game and try counting them, if you do not know.',
-                  measuring_unit: '',
-                  valid_feedback:
-                    'Great job! Please click on PROCEED button to move on to the next step.',
-                  invalid_feedback: "That's not correct. Please try again.",
-                },
-                checked: false,
-              },
-              {
-                card: {
-                  text: 'roof - identifying structure of the existing building',
-                  title: 'phase 2: decomposition',
-                },
-                name: 'roof',
-                modal: {
-                  show: false,
-                  answer: 1,
-                  has_unit: false,
-                  question:
-                    'How many roofs would be needed to build the adobe house?',
-                  image_src: 'img/building/desertbuild02/phase2_step3.png',
-                  image_added: true,
-                  hint_feedback:
-                    'Return to the game and try counting them, if you do not know.',
-                  measuring_unit: '',
-                  valid_feedback:
-                    'Great job! Please click on PROCEED button to move on to the next step.',
-                  invalid_feedback: "That's not correct. Please try again.",
-                },
-                checked: false,
-              },
-            ],
-            validated: false,
-          },
-          {
-            name: 'phase 3',
-            steps: [
-              {
-                card: {
-                  text: 'Estimating how many clay blocks needed to build a large wall',
-                  title: 'phase 3: planning',
-                },
-                name: 'large wall',
-                modal: {
-                  show: false,
-                  answer: 6,
-                  has_unit: false,
-                  question:
-                    'How many clay blocks do you need to build a large wall?',
-                  hint_feedback:
-                    'Try counting how many clay blocks are included in a large wall.',
-                  measuring_unit: '',
-                  valid_feedback:
-                    'Great job! Please click on PROCEED button to move on to the next step.',
-                  invalid_feedback: "That's not correct. Please try again.",
-                },
-                checked: false,
-              },
-              {
-                card: {
-                  text: 'Estimating how many clay blocks needed to build a small wall',
-                  title: 'phase 3: planning',
-                },
-                name: 'small wall',
-                modal: {
-                  show: false,
-                  answer: 4,
-                  has_unit: false,
-                  question:
-                    'How many clay blocks do you need to build a small wall?',
-                  hint_feedback:
-                    'Try counting how many clay blocks are included in a small wall.',
-                  measuring_unit: '',
-                  valid_feedback:
-                    'Great job! Please click on PROCEED button to move on to the next step.',
-                  invalid_feedback: "That's not correct. Please try again.",
-                },
-                checked: false,
-              },
-              {
-                card: {
-                  text: 'Estimating how many clay blocks needed to build a roof',
-                  title: 'phase 3: planning',
-                },
-                name: 'roof',
-                modal: {
-                  show: false,
-                  answer: 6,
-                  has_unit: false,
-                  question: 'How many clay blocks do you need to build a roof?',
-                  hint_feedback:
-                    'Try counting how many clay blocks are included in a roof.',
-                  measuring_unit: '',
-                  valid_feedback:
-                    'Great job! Please click on PROCEED button to move on to the next step.',
-                  invalid_feedback: "That's not correct. Please try again.",
-                },
-                checked: false,
-              },
-              {
-                card: {
-                  text: 'Estimating how many clay blocks needed to build the adobe house',
-                  title: 'phase 3: planning',
-                },
-                name: 'adobe house',
-                modal: {
-                  show: false,
-                  answer: 26,
-                  has_unit: false,
-                  question:
-                    'How many clay blocks do you need to build the adobe house?',
-                  hint_feedback:
-                    'Think about how many large walls, small walls, and roofs are included in the adobe house.',
-                  measuring_unit: '',
-                  valid_feedback:
-                    'Great job! Please click on PROCEED button to move on to the next step.',
-                  invalid_feedback: "That's not correct. Please try again.",
-                },
-                checked: false,
-              },
-            ],
-            validated: false,
-          },
-        ],
+              ],
+            },
+          ],
+        },
       ],
     },
     {
@@ -795,197 +384,59 @@ export const state = () => ({
       ],
       buildings: [
         {
-          name: 'phase 1',
-          steps: [
+          name: 'adobe house',
+          count: 1,
+          type: 'whole building',
+          value: 104,
+          goal: 'surface area',
+          measuringUnit: 'm2',
+          children: [
             {
-              card: {
-                text: 'step 1 - identifying total surface area to be covered',
-                title: 'phase 1: identifying your goal',
-              },
-              name: 'total surface area',
-              modal: {
-                show: false,
-                answer: 104,
-                has_unit: true,
-                question:
-                  'What should the total surface area of the adobe house be?',
-                image_src: 'img/building/desertbuild03/phase1_step1.png',
-                image_added: true,
-                hint_feedback:
-                  'Return to the game and try identifying its length, width, and height, based on the information given.',
-                measuring_unit: 'm2',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
-            },
-          ],
-          validated: false,
-        },
-        {
-          name: 'phase 2',
-          steps: [
-            {
-              card: {
-                text: 'large walls - identifying structure of the existing building',
-                title: 'phase 2: decomposition',
-              },
-              name: 'large wall',
-              modal: {
-                show: false,
-                answer: 2,
-                has_unit: false,
-                question:
-                  'How many large walls would be needed to build the adobe house?',
-                image_src: 'img/building/desertbuild03/phase2_step1.png',
-                image_added: true,
-                hint_feedback:
-                  'Return to the game and try counting them, if you do not know.',
-                measuring_unit: '',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
+              name: '6X4 wall',
+              count: 2,
+              type: 'module',
+              value: 24,
+              hasHint: true,
+              children: [
+                {
+                  name: 'clay block',
+                  count: 6,
+                  type: 'building block',
+                  value: 4,
+                },
+              ],
             },
             {
-              card: {
-                text: 'small wall - identifying structure of the existing building',
-                title: 'phase 2: decomposition',
-              },
-              name: 'small wall',
-              modal: {
-                show: false,
-                answer: 2,
-                has_unit: false,
-                question:
-                  'How many small walls would be needed to build the adobe house?',
-                image_src: 'img/building/desertbuild03/phase2_step2.png',
-                image_added: true,
-                hint_feedback:
-                  'Return to the game and try counting them, if you do not know.',
-                measuring_unit: '',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
+              name: '4X4 wall',
+              count: 2,
+              type: 'module',
+              value: 16,
+              hasHint: true,
+              children: [
+                {
+                  name: 'clay block',
+                  count: 4,
+                  type: 'building block',
+                  value: 4,
+                },
+              ],
             },
             {
-              card: {
-                text: 'roof - identifying structure of the existing building',
-                title: 'phase 2: decomposition',
-              },
               name: 'roof',
-              modal: {
-                show: false,
-                answer: 1,
-                has_unit: false,
-                question:
-                  'How many roofs would be needed to build the adobe house?',
-                image_src: 'img/building/desertbuild03/phase2_step3.png',
-                image_added: true,
-                hint_feedback:
-                  'Return to the game and try counting them, if you do not know.',
-                measuring_unit: '',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
+              count: 1,
+              type: 'module',
+              value: 24,
+              hasHint: true,
+              children: [
+                {
+                  name: 'clay block',
+                  count: 6,
+                  type: 'building block',
+                  value: 4,
+                },
+              ],
             },
           ],
-          validated: false,
-        },
-        {
-          name: 'phase 3',
-          steps: [
-            {
-              card: {
-                text: 'Estimating how many clay blocks needed to build a large wall',
-                title: 'phase 3: planning',
-              },
-              name: 'large wall',
-              modal: {
-                show: false,
-                answer: 6,
-                has_unit: false,
-                question:
-                  'How many clay blocks do you need to build a large wall?',
-                hint_feedback:
-                  'Try counting how many clay blocks are included in a large wall.',
-                measuring_unit: '',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
-            },
-            {
-              card: {
-                text: 'Estimating how many clay blocks needed to build a small wall',
-                title: 'phase 3: planning',
-              },
-              name: 'small wall',
-              modal: {
-                show: false,
-                answer: 4,
-                has_unit: false,
-                question:
-                  'How many clay blocks do you need to build a small wall?',
-                hint_feedback:
-                  'Try counting how many clay blocks are included in a small wall.',
-                measuring_unit: '',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
-            },
-            {
-              card: {
-                text: 'Estimating how many clay blocks needed to build a roof',
-                title: 'phase 3: planning',
-              },
-              name: 'roof',
-              modal: {
-                show: false,
-                answer: 6,
-                has_unit: false,
-                question: 'How many clay blocks do you need to build a roof?',
-                hint_feedback:
-                  'Try counting how many clay blocks are included in a roof.',
-                measuring_unit: '',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
-            },
-            {
-              card: {
-                text: 'Estimating how many clay blocks needed to build the adobe house',
-                title: 'phase 3: planning',
-              },
-              name: 'adobe house',
-              modal: {
-                show: false,
-                answer: 26,
-                has_unit: false,
-                question:
-                  'How many clay blocks do you need to build the adobe house?',
-                hint_feedback:
-                  'Think about how many large walls, small walls, and roofs are included in the adobe house.',
-                measuring_unit: '',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
-            },
-          ],
-          validated: false,
         },
       ],
     },
@@ -998,20 +449,7 @@ export const state = () => ({
           type: 'area',
           full: true,
           building: {
-            name: 'adobe house',
-            properties: {
-              length: 8,
-              width: 4,
-            },
-          },
-          measuringUnit: 'm2',
-          value: 32,
-        },
-        {
-          type: 'area',
-          full: false,
-          building: {
-            name: 'adobe house',
+            name: 'highlighted wall',
             properties: {
               length: 6,
               width: 4,
@@ -1023,132 +461,29 @@ export const state = () => ({
       ],
       buildings: [
         {
-          name: 'phase 1',
-          steps: [
+          name: 'highlighted wall',
+          count: 1,
+          type: 'whole building',
+          value: 24,
+          goal: 'area',
+          measuringUnit: 'm2',
+          children: [
             {
-              card: {
-                text: 'step 1 - identifying total area to be covered',
-                title: 'phase 1: identifying your goal',
-              },
-              name: 'total area',
-              modal: {
-                show: false,
-                answer: 32,
-                has_unit: true,
-                question: 'What should the total area of the whole wall be?',
-                image_src: 'img/building/desertcopy01/phase1_step1.png',
-                image_added: true,
-                hint_feedback:
-                  'Return to the game and try measuring its length and width, if you do not know.',
-                measuring_unit: 'm2',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
-            },
-            {
-              card: {
-                text: 'step 2 - identifying the remaining area to be covered',
-                title: 'phase 1: identifying your goal',
-              },
-              name: 'Remaining Area',
-              modal: {
-                show: false,
-                answer: 24,
-                has_unit: true,
-                question:
-                  'What is the remaining area of Whole Wall to be covered?',
-                image_src: 'img/building/desertcopy01/phase1_step2.png',
-                image_added: true,
-                hint_feedback:
-                  'Return to the game and try measuring its length and width, if you do not know.',
-                measuring_unit: 'm2',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
+              name: '2X4 wall panel',
+              count: 3,
+              type: 'module',
+              value: 8,
+              hasHint: true,
+              children: [
+                {
+                  name: 'clay block',
+                  count: 2,
+                  type: 'building block',
+                  value: 4,
+                },
+              ],
             },
           ],
-          validated: false,
-        },
-        {
-          name: 'phase 2',
-          steps: [
-            {
-              card: {
-                text: 'wall panels - identifying structure of the existing building',
-                title: 'phase 2: decomposition',
-              },
-              name: 'wall panel',
-              modal: {
-                show: false,
-                answer: 3,
-                has_unit: false,
-                question:
-                  'How many wall panels would be needed to complete the remaining area of the whole wall?',
-                image_src: 'img/building/desertcopy01/phase2_step1.png',
-                image_added: true,
-                hint_feedback:
-                  'Return to the game and try counting them, if you do not know.',
-                measuring_unit: '',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
-            },
-          ],
-          validated: false,
-        },
-        {
-          name: 'phase 3',
-          steps: [
-            {
-              card: {
-                text: 'Estimating how many clay blocks needed to build a wall panel',
-                title: 'phase 3: planning',
-              },
-              name: 'wall panel',
-              modal: {
-                show: false,
-                answer: 2,
-                has_unit: false,
-                question:
-                  'How many clay blocks do you need to build a wall panel?',
-                hint_feedback:
-                  'Try counting how many clay blocks are included in a wall panel.',
-                measuring_unit: '',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
-            },
-            {
-              card: {
-                text: 'Estimating how many clay blocks needed to build the adobe house',
-                title: 'phase 3: planning',
-              },
-              name: 'adobe house',
-              modal: {
-                show: false,
-                answer: 6,
-                has_unit: false,
-                question:
-                  'How many clay blocks do you need to build the whole wall?',
-                hint_feedback:
-                  'Think about how many wall panels are included in the whole wall.',
-                measuring_unit: '',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
-            },
-          ],
-          validated: false,
         },
       ],
     },
@@ -1161,20 +496,7 @@ export const state = () => ({
           type: 'area',
           full: true,
           building: {
-            name: 'adobe house',
-            properties: {
-              length: 8,
-              width: 4,
-            },
-          },
-          measuringUnit: 'm2',
-          value: 32,
-        },
-        {
-          type: 'area',
-          full: false,
-          building: {
-            name: 'adobe house',
+            name: 'highlighted wall',
             properties: {
               length: 6,
               width: 4,
@@ -1186,132 +508,29 @@ export const state = () => ({
       ],
       buildings: [
         {
-          name: 'phase 1',
-          steps: [
+          name: 'highlighted wall',
+          count: 1,
+          type: 'whole building',
+          value: 24,
+          goal: 'area',
+          measuringUnit: 'm2',
+          children: [
             {
-              card: {
-                text: 'step 1 - identifying total area to be covered',
-                title: 'phase 1: identifying your goal',
-              },
-              name: 'total area',
-              modal: {
-                show: false,
-                answer: 32,
-                has_unit: true,
-                question: 'What should the total area of the whole wall be?',
-                image_src: 'img/building/desertcopy02/phase1_step1.png',
-                image_added: true,
-                hint_feedback:
-                  'Return to the game and try measuring its length and width, if you do not know.',
-                measuring_unit: 'm2',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
-            },
-            {
-              card: {
-                text: 'step 2 - identifying the remaining area to be covered',
-                title: 'phase 1: identifying your goal',
-              },
-              name: 'Remaining Area',
-              modal: {
-                show: false,
-                answer: 24,
-                has_unit: true,
-                question:
-                  'What is the remaining area of Whole Wall to be covered?',
-                image_src: 'img/building/desertcopy02/phase1_step2.png',
-                image_added: true,
-                hint_feedback:
-                  'Return to the game and try measuring its length and width, if you do not know.',
-                measuring_unit: 'm2',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
+              name: '2X4 wall panel',
+              count: 3,
+              type: 'module',
+              value: 8,
+              hasHint: true,
+              children: [
+                {
+                  name: 'clay block',
+                  count: 2,
+                  type: 'building block',
+                  value: 4,
+                },
+              ],
             },
           ],
-          validated: false,
-        },
-        {
-          name: 'phase 2',
-          steps: [
-            {
-              card: {
-                text: 'small wall panels - identifying structure of the existing building',
-                title: 'phase 2: decomposition',
-              },
-              name: 'small wall panel',
-              modal: {
-                show: false,
-                answer: 3,
-                has_unit: false,
-                question:
-                  'How many small wall panels would be needed to complete the remaining area of the whole wall?',
-                image_src: 'img/building/desertcopy02/phase2_step1.png',
-                image_added: true,
-                hint_feedback:
-                  'Return to the game and try counting them, if you do not know.',
-                measuring_unit: '',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
-            },
-          ],
-          validated: false,
-        },
-        {
-          name: 'phase 3',
-          steps: [
-            {
-              card: {
-                text: 'Estimating how many clay blocks needed to build a small wall panel',
-                title: 'phase 3: planning',
-              },
-              name: 'small wall panel',
-              modal: {
-                show: false,
-                answer: 2,
-                has_unit: false,
-                question:
-                  'How many clay blocks do you need to build a small wall panel?',
-                hint_feedback:
-                  'Try counting how many clay blocks are included in a small wall panel.',
-                measuring_unit: '',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
-            },
-            {
-              card: {
-                text: 'Estimating how many clay blocks needed to build the adobe house',
-                title: 'phase 3: planning',
-              },
-              name: 'adobe house',
-              modal: {
-                show: false,
-                answer: 6,
-                has_unit: false,
-                question:
-                  'How many clay blocks do you need to build the whole wall?',
-                hint_feedback:
-                  'Think about how many small wall panels are included in the whole wall.',
-                measuring_unit: '',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
-            },
-          ],
-          validated: false,
         },
       ],
     },
@@ -1854,160 +1073,38 @@ export const state = () => ({
           },
         },
       ],
+      buildingGoals: [
+        {
+          type: 'volume',
+          full: true,
+          building: {
+            name: 'shipping container home',
+            properties: {
+              length: 15,
+              width: 8,
+              height: 6,
+            },
+          },
+          measuringUnit: 'm3',
+          value: 600,
+        },
+      ],
       buildings: [
         {
-          name: 'phase 1',
-          steps: [
+          name: 'shipping container home',
+          count: 1,
+          type: 'whole building',
+          value: 600,
+          goal: 'volume',
+          measuringUnit: 'm3',
+          children: [
             {
-              card: {
-                text: 'step 1 - identifying full volume to be filled',
-                title: 'phase 1: identifying your goal',
-              },
-              name: 'full volume',
-              modal: {
-                show: false,
-                answer: 600,
-                has_unit: true,
-                question:
-                  'What should the full volume of the shipping container home be?',
-                image_src: 'img/building/islandbuild03/phase1_step1.png',
-                image_added: true,
-                hint_feedback:
-                  'Return to the game and try identifying its length, width, and height, based on the information given.',
-                measuring_unit: 'm3',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
+              name: 'shipping container',
+              count: 5,
+              type: 'building block',
+              value: 120,
             },
           ],
-          validated: false,
-        },
-        {
-          name: 'phase 2',
-          steps: [
-            {
-              card: {
-                text: 'top floor - identifying structure of the existing building',
-                title: 'phase 2: decomposition',
-              },
-              name: 'top floor',
-              modal: {
-                show: false,
-                answer: 1,
-                has_unit: false,
-                question:
-                  'How many top floors would be needed to build the shipping container home?',
-                image_src: 'img/building/islandbuild03/phase2_step1.png',
-                image_added: true,
-                hint_feedback:
-                  'Return to the game and try counting them, if you do not know.',
-                measuring_unit: '',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
-            },
-            {
-              card: {
-                text: 'bottom floor - identifying structure of the existing building',
-                title: 'phase 2: decomposition',
-              },
-              name: 'bottom floor',
-              modal: {
-                show: false,
-                answer: 1,
-                has_unit: false,
-                question:
-                  'How many bottom floors would be needed to build the shipping container home?',
-                image_src: 'img/building/islandbuild03/phase2_step2.png',
-                image_added: true,
-                hint_feedback:
-                  'Return to the game and try counting them, if you do not know.',
-                measuring_unit: '',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
-            },
-          ],
-          validated: false,
-        },
-        {
-          name: 'phase 3',
-          steps: [
-            {
-              card: {
-                text: 'Estimating how many shipping containers needed to build the top floor',
-                title: 'phase 3: planning',
-              },
-              name: 'top floor',
-              modal: {
-                show: false,
-                answer: 3,
-                has_unit: false,
-                question:
-                  'How many shipping containers do you need to build the top floor?',
-                image_src: 'img/building/islandbuild03/phase2_step1.png',
-                image_added: true,
-                hint_feedback:
-                  'Try counting how many shipping containers are included in the top floor.',
-                measuring_unit: '',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
-            },
-            {
-              card: {
-                text: 'Estimating how many shipping containers needed to build the bottom floor',
-                title: 'phase 3: planning',
-              },
-              name: 'bottom floor',
-              modal: {
-                show: false,
-                answer: 2,
-                has_unit: false,
-                question:
-                  'How many shipping containers do you need to build the bottom floor?',
-                image_src: 'img/building/islandbuild03/phase2_step2.png',
-                image_added: true,
-                hint_feedback:
-                  'Try counting how many shipping containers are included in the bottom floor.',
-                measuring_unit: '',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
-            },
-            {
-              card: {
-                text: 'Estimating how many shipping containers needed to build the shipping container home',
-                title: 'phase 3: planning',
-              },
-              name: 'shipping container home',
-              modal: {
-                show: false,
-                answer: 5,
-                has_unit: false,
-                question:
-                  'How many shipping containers do you need to build the shipping container home?',
-                hint_feedback:
-                  'The sum of the answers to the 2 previous questions.',
-                measuring_unit: '',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
-            },
-          ],
-          validated: false,
         },
       ],
     },
@@ -4125,223 +3222,75 @@ export const state = () => ({
       id: 30,
       name: 'SchoolBuild01',
       actions: ['building', 'trading'],
+      buildingGoals: [
+        {
+          type: 'length',
+          full: true,
+          building: {
+            name: 'stadium seat',
+            properties: {
+              length: 24,
+              width: 5,
+              height: 2.5,
+            },
+          },
+          measuringUnit: 'm',
+          value: 24,
+        },
+      ],
       buildings: [
         {
-          name: 'phase 1',
-          steps: [
+          name: 'stadium seat',
+          count: 1,
+          type: 'whole building',
+          value: 24,
+          goal: 'length',
+          measuringUnit: 'm',
+          children: [
             {
-              card: {
-                text: 'step 1 - identifying the total length to be covered',
-                title: 'phase 1: identifying your goal',
-              },
-              name: 'Total Length',
-              modal: {
-                show: false,
-                answer: 48,
-                has_unit: true,
-                question:
-                  'what should the total length of the stadium seat be?',
-                image_src: 'img/building/schoolbuild01/phase1_step1.png',
-                image_added: true,
-                hint_feedback:
-                  'Return to the game and try measuring it, if you do not know.',
-                measuring_unit: 'm',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
-            },
-            {
-              card: {
-                text: 'step 2 - identifying the remaining length to be covered',
-                title: 'phase 1: identifying your goal',
-              },
-              name: 'Remaining Length',
-              modal: {
-                show: false,
-                answer: 24,
-                has_unit: true,
-                question:
-                  'What is the remaining length of Stadium Seat to be covered?',
-                image_src: 'img/building/schoolbuild01/phase1_step2.png',
-                image_added: true,
-                hint_feedback:
-                  'Return to the game and try measuring it, if you do not know.',
-                measuring_unit: 'm',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
-            },
-          ],
-          validated: false,
-        },
-        {
-          name: 'phase 2',
-          steps: [
-            {
-              card: {
-                text: 'stadium seat section - identifying structure of the existing building',
-                title: 'phase 2: decomposition',
-              },
               name: 'stadium seat section',
-              modal: {
-                show: false,
-                answer: 2,
-                has_unit: false,
-                question:
-                  'How many stadium seat sections would be needed to complete the remaining length of the stadium seat?',
-                image_src: 'img/building/schoolbuild01/phase2_step1.png',
-                image_added: true,
-                hint_feedback:
-                  'Return to the game and try counting them, if you do not know.',
-                measuring_unit: '',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
-            },
-            {
-              card: {
-                text: 'row - identifying structure of the existing building',
-                title: 'phase 2: decomposition',
-              },
-              name: 'row',
-              modal: {
-                show: false,
-                answer: 5,
-                has_unit: false,
-                question:
-                  'How many rows would be needed to build a stadium seat section?',
-                image_src: 'img/building/schoolbuild01/phase2_step2.png',
-                image_added: true,
-                hint_feedback:
-                  'Return to the game and try counting them, if you do not know.',
-                measuring_unit: '',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
-            },
-            {
-              card: {
-                text: 'support - identifying structure of the existing building',
-                title: 'phase 2: decomposition',
-              },
-              name: 'support',
-              modal: {
-                show: false,
-                answer: 2,
-                has_unit: false,
-                question:
-                  'How many supports would be needed to build a stadium seat section?',
-                image_src: 'img/building/schoolbuild01/phase2_step3.png',
-                image_added: true,
-                hint_feedback:
-                  'Return to the game and try counting them, if you do not know.',
-                measuring_unit: '',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
+              count: 2,
+              type: 'parent module',
+              value: 12,
+              hasHint: true,
+              children: [
+                {
+                  name: 'row',
+                  count: 5,
+                  type: 'module',
+                  value: 12,
+                  hasHint: true,
+                  children: [
+                    {
+                      name: 'stadium block',
+                      count: 6,
+                      type: 'building block',
+                      value: 2,
+                      hasHint: false,
+                    },
+                  ],
+                },
+                {
+                  name: 'support',
+                  count: 2,
+                  type: 'module',
+                  goalRelated: false,
+                  value: 0,
+                  hasHint: true,
+                  children: [
+                    {
+                      name: 'stadium block',
+                      count: 10,
+                      type: 'building block',
+                      goalRelated: false,
+                      value: 0,
+                      hasHint: false,
+                    },
+                  ],
+                },
+              ],
             },
           ],
-          validated: false,
-        },
-        {
-          name: 'phase 3',
-          steps: [
-            {
-              card: {
-                text: 'Estimating how many stadium blocks needed to build rows',
-                title: 'phase 3: planning',
-              },
-              name: 'row',
-              modal: {
-                show: false,
-                answer: 30,
-                has_unit: false,
-                question:
-                  'How many stadium blocks do you need to build 5 rows?',
-                hint_feedback:
-                  'Think about the length covered by each row in a stadium seat section.',
-                measuring_unit: '',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
-            },
-            {
-              card: {
-                text: 'Estimating how many stadium blocks needed to build supports',
-                title: 'phase 3: planning',
-              },
-              name: 'support',
-              modal: {
-                show: false,
-                answer: 20,
-                has_unit: false,
-                question:
-                  'How many stadium blocks do you need to build 2 supports?',
-                hint_feedback:
-                  'Return to the game and try counting how many stadium blocks are included in the existing example of a support.',
-                measuring_unit: '',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
-            },
-            {
-              card: {
-                text: 'Estimating how many stadium blocks needed to build a(n) stadium seat section',
-                title: 'phase 3: planning',
-              },
-              name: 'stadium seat section',
-              modal: {
-                show: false,
-                answer: 50,
-                has_unit: false,
-                question:
-                  'How many stadium blocks do you need to build a(n) stadium seat section?',
-                hint_feedback:
-                  'The sum of the answers to the 2 previous questions.',
-                measuring_unit: '',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
-            },
-            {
-              card: {
-                text: 'Estimating how many stadium blocks needed to build the stadium seat',
-                title: 'phase 3: planning',
-              },
-              name: 'stadium seat',
-              modal: {
-                show: false,
-                answer: 100,
-                has_unit: false,
-                question:
-                  'How many stadium blocks do you need to build the stadium seat?',
-                hint_feedback:
-                  'Think about how many stadium seat sections are included in the stadium seat.',
-                measuring_unit: '',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
-            },
-          ],
-          validated: false,
         },
       ],
     },
@@ -4778,11 +3727,63 @@ const buildingImage = (buildingName) => {
   const lowercaseName = buildingName.toLowerCase()
   const urls = {
     'shipping container home': '/images/building/shipping-container-home-1.png',
+    'adobe house': '/images/building/adobe-house-1.png',
+    'highlighted wall': '/images/building/highlighted-wall-1.png',
+    'stadium seat': '/images/building/stadium-seats-1.png',
     area: '/images/goals/goal-area-2.png',
     surface: '/images/goals/goal-surface-1.png',
     volume: '/images/goals/goal-volume-1.png',
   }
   return lowercaseName in urls ? urls[lowercaseName] : undefined
+}
+
+const buildingIcon = (buildingName) => {
+  const lowercaseName = buildingName.toLowerCase()
+  const baseUrl = '/images/building/'
+  const urls = {
+    'shipping container home': baseUrl + 'shipping-container-home-1.svg',
+    'shipping container': baseUrl + 'shipping-container-1.svg',
+    'adobe house': baseUrl + 'adobe-house-icon.png',
+    '6x4 wall': baseUrl + '6x4-wall-icon.png',
+    '4x4 wall': baseUrl + '4x4-wall-icon.png',
+    roof: baseUrl + 'roof-icon.png',
+    'clay block': baseUrl + 'clay-block-icon.png',
+    'highlighted wall': baseUrl + 'highlighted-wall-icon.png',
+    '2x4 wall panel': baseUrl + '2x4-wall-icon.png',
+    'stadium block': baseUrl + 'stadium-block-icon.png',
+    'stadium seat': baseUrl + 'stadium-seats-icon.png',
+    'stadium seat section': baseUrl + 'stadium-seat-section-icon.png',
+    row: baseUrl + 'stadium-row-icon.png',
+    support: baseUrl + 'stadium-support-icon.png',
+  }
+  return lowercaseName in urls ? urls[lowercaseName] : undefined
+}
+
+let buildingCounter = 0
+
+const populateBuildingData = (module, goal) => {
+  buildingCounter += 1
+  const measuringUnit = {
+    length: 'm',
+    area: 'm2',
+    'surface area': 'm2',
+    volume: 'm3',
+  }
+  return {
+    id: buildingCounter,
+    name: module.name,
+    type: module.type,
+    icon: buildingIcon(module.name),
+    value: module.value,
+    measuringUnit: measuringUnit[goal],
+    checked: module.value <= 0,
+    completed: false,
+    count: module.count,
+    hasHint: module.hasHint,
+    ...('children' in module && {
+      children: module.children.map((item) => populateBuildingData(item, goal)),
+    }),
+  }
 }
 
 export const getters = {
@@ -4888,6 +3889,17 @@ export const getters = {
         checked: false,
         ...item,
       }))
+    }
+  },
+  buildings: (state) => (levelName) => {
+    const levelData = state.list.find(
+      (x) => x.name.toLowerCase() === levelName.toLowerCase()
+    )
+    const data = 'buildings' in levelData ? levelData.buildings : undefined
+    const goal = data[0].goal
+
+    if (data) {
+      return data.map((item) => populateBuildingData(item, goal))
     }
   },
 }
