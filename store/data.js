@@ -5,7 +5,7 @@ export const state = () => ({
     {
       id: 3,
       name: 'IslandBuild01',
-      actions: ['building', 'collecting', 'trading'],
+      actions: ['building', 'collecting'],
       collectibles: [
         {
           name: 'shipping container',
@@ -70,7 +70,7 @@ export const state = () => ({
     {
       id: 4,
       name: 'IslandBuild02',
-      actions: ['building', 'collecting', 'trading'],
+      actions: ['building', 'collecting'],
       collectibles: [
         {
           name: 'shipping container',
@@ -134,7 +134,7 @@ export const state = () => ({
     {
       id: 5,
       name: 'DesertBuild01',
-      actions: ['building', 'collecting', 'trading'],
+      actions: ['building', 'collecting'],
       collectibles: [
         {
           name: 'clay block',
@@ -237,7 +237,7 @@ export const state = () => ({
     {
       id: 6,
       name: 'DesertBuild02',
-      actions: ['building', 'collecting', 'trading'],
+      actions: ['building', 'collecting'],
       collectibles: [
         {
           name: 'clay block',
@@ -340,7 +340,7 @@ export const state = () => ({
     {
       id: 7,
       name: 'DesertBuild03',
-      actions: ['building', 'collecting', 'trading'],
+      actions: ['building', 'collecting'],
       collectibles: [
         {
           name: 'clay block',
@@ -443,7 +443,7 @@ export const state = () => ({
     {
       id: 8,
       name: 'DesertCopy01',
-      actions: ['building', 'trading'],
+      actions: ['building'],
       buildingGoals: [
         {
           type: 'area',
@@ -490,7 +490,7 @@ export const state = () => ({
     {
       id: 9,
       name: 'DesertCopy02',
-      actions: ['building', 'trading'],
+      actions: ['building'],
       buildingGoals: [
         {
           type: 'area',
@@ -1047,7 +1047,7 @@ export const state = () => ({
     {
       id: 17,
       name: 'IslandBuild03',
-      actions: ['building', 'collecting', 'trading'],
+      actions: ['building', 'collecting'],
       collectibles: [
         {
           name: 'shipping container',
@@ -3221,7 +3221,7 @@ export const state = () => ({
     {
       id: 30,
       name: 'SchoolBuild01',
-      actions: ['building', 'trading'],
+      actions: ['building'],
       buildingGoals: [
         {
           type: 'length',
@@ -3250,7 +3250,7 @@ export const state = () => ({
             {
               name: 'stadium seat section',
               count: 2,
-              type: 'parent module',
+              type: 'module',
               value: 12,
               hasHint: true,
               children: [
@@ -3297,201 +3297,76 @@ export const state = () => ({
     {
       id: 31,
       name: 'SchoolBuild02',
-      actions: ['building', 'trading'],
+      actions: ['building'],
+      buildingGoals: [
+        {
+          type: 'length',
+          full: true,
+          building: {
+            name: 'stadium seat',
+            properties: {
+              length: 48,
+              width: 5,
+              height: 2.5,
+            },
+          },
+          measuringUnit: 'm',
+          value: 48,
+        },
+      ],
       buildings: [
         {
-          name: 'phase 1',
-          steps: [
+          name: 'stadium seat',
+          count: 1,
+          type: 'whole building',
+          value: 48,
+          goal: 'length',
+          measuringUnit: 'm',
+          children: [
             {
-              card: {
-                text: 'step 1 - identifying the total length to be covered',
-                title: 'phase 1: identifying your goal',
-              },
-              name: 'Total Length',
-              modal: {
-                show: false,
-                answer: 48,
-                has_unit: true,
-                question:
-                  'what should the total length of the stadium seat be?',
-                image_src: 'img/building/schoolbuild02/phase1_step1.png',
-                image_added: true,
-                hint_feedback:
-                  'Return to the game and try measuring it, if you do not know.',
-                measuring_unit: 'm',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
-            },
-          ],
-          validated: false,
-        },
-        {
-          name: 'phase 2',
-          steps: [
-            {
-              card: {
-                text: 'stadium seat section - identifying structure of the existing building',
-                title: 'phase 2: decomposition',
-              },
               name: 'stadium seat section',
-              modal: {
-                show: false,
-                answer: 4,
-                has_unit: false,
-                question:
-                  'How many stadium seat sections would be needed to complete the stadium seat?',
-                image_src: 'img/building/schoolbuild02/phase2_step1.png',
-                image_added: true,
-                hint_feedback:
-                  'Return to the game and try counting them, if you do not know.',
-                measuring_unit: '',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
-            },
-            {
-              card: {
-                text: 'row - identifying structure of the existing building',
-                title: 'phase 2: decomposition',
-              },
-              name: 'row',
-              modal: {
-                show: false,
-                answer: 5,
-                has_unit: false,
-                question:
-                  'How many rows would be needed to build a stadium seat section?',
-                image_src: 'img/building/schoolbuild02/phase2_step2.png',
-                image_added: true,
-                hint_feedback:
-                  'Return to the game and try counting them, if you do not know.',
-                measuring_unit: '',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
-            },
-            {
-              card: {
-                text: 'support - identifying structure of the existing building',
-                title: 'phase 2: decomposition',
-              },
-              name: 'support',
-              modal: {
-                show: false,
-                answer: 2,
-                has_unit: false,
-                question:
-                  'How many supports would be needed to build a stadium seat section?',
-                image_src: 'img/building/schoolbuild02/phase2_step3.png',
-                image_added: true,
-                hint_feedback:
-                  'Return to the game and try counting them, if you do not know.',
-                measuring_unit: '',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
+              count: 4,
+              type: 'module',
+              value: 12,
+              hasHint: true,
+              children: [
+                {
+                  name: 'row',
+                  count: 5,
+                  type: 'module',
+                  value: 12,
+                  hasHint: true,
+                  children: [
+                    {
+                      name: 'stadium block',
+                      count: 6,
+                      type: 'building block',
+                      value: 2,
+                      hasHint: false,
+                    },
+                  ],
+                },
+                {
+                  name: 'support',
+                  count: 2,
+                  type: 'module',
+                  goalRelated: false,
+                  value: 0,
+                  hasHint: true,
+                  children: [
+                    {
+                      name: 'stadium block',
+                      count: 10,
+                      type: 'building block',
+                      goalRelated: false,
+                      value: 0,
+                      hasHint: false,
+                    },
+                  ],
+                },
+              ],
             },
           ],
-          validated: false,
-        },
-        {
-          name: 'phase 3',
-          steps: [
-            {
-              card: {
-                text: 'Estimating how many stadium blocks needed to build rows',
-                title: 'phase 3: planning',
-              },
-              name: 'row',
-              modal: {
-                show: false,
-                answer: 30,
-                has_unit: false,
-                question:
-                  'How many stadium blocks do you need to build 5 rows?',
-                hint_feedback:
-                  'Think about the length covered by each row in a stadium seat section.',
-                measuring_unit: '',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
-            },
-            {
-              card: {
-                text: 'Estimating how many stadium blocks needed to build supports',
-                title: 'phase 3: planning',
-              },
-              name: 'support',
-              modal: {
-                show: false,
-                answer: 20,
-                has_unit: false,
-                question:
-                  'How many stadium blocks do you need to build 2 supports?',
-                hint_feedback:
-                  'Return to the game and try counting how many stadium blocks are included in the existing example of a support.',
-                measuring_unit: '',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
-            },
-            {
-              card: {
-                text: 'Estimating how many stadium blocks needed to build a(n) stadium seat section',
-                title: 'phase 3: planning',
-              },
-              name: 'stadium seat section',
-              modal: {
-                show: false,
-                answer: 50,
-                has_unit: false,
-                question:
-                  'How many stadium blocks do you need to build a(n) stadium seat section?',
-                hint_feedback:
-                  'The sum of the answers to the 2 previous questions.',
-                measuring_unit: '',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
-            },
-            {
-              card: {
-                text: 'Estimating how many stadium blocks needed to build the stadium seat',
-                title: 'phase 3: planning',
-              },
-              name: 'stadium seat',
-              modal: {
-                show: false,
-                answer: 200,
-                has_unit: false,
-                question:
-                  'How many stadium blocks do you need to build the stadium seat?',
-                hint_feedback:
-                  'Think about how many stadium seat sections are included in the stadium seat.',
-                measuring_unit: '',
-                valid_feedback:
-                  'Great job! Please click on PROCEED button to move on to the next step.',
-                invalid_feedback: "That's not correct. Please try again.",
-              },
-              checked: false,
-            },
-          ],
-          validated: false,
         },
       ],
     },

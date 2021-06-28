@@ -42,22 +42,33 @@ export const mutations = {
   checkModule(state, moduleId) {
     const building = state.buildings[0]
     const modules = building.children
-    let module
-    modules.forEach((item) => {
-      if (item.id === moduleId) module = item
-      else if ('children' in item) {
-        item.children.forEach((block) => {
-          if (block.id === moduleId) module = block
+    let res
+    modules.forEach((module) => {
+      if (module.id === moduleId) res = module
+      else if ('children' in module) {
+        module.children.forEach((subModule) => {
+          if (subModule.id === moduleId) res = subModule
+          else if ('children' in subModule) {
+            subModule.children.forEach((block) => {
+              if (block.id === moduleId) res = block
+            })
+          }
         })
       }
     })
-    module.checked = true
+    res.checked = true
     const result = building.children.every((module) => {
       if ('children' in module) {
-        const res = module.children.every((block) => {
-          return block.checked
+        const resModule = module.children.every((subModule) => {
+          if ('children' in subModule) {
+            const resSubModule = subModule.children.every((block) => {
+              return block.checked
+            })
+            return resSubModule && subModule.checked
+          }
+          return subModule.checked
         })
-        return res && module.checked
+        return resModule && module.checked
       } else {
         return module.checked
       }
@@ -69,22 +80,33 @@ export const mutations = {
   checkPlanning(state, moduleId) {
     const building = state.buildings[0]
     const modules = building.children
-    let module
-    modules.forEach((item) => {
-      if (item.id === moduleId) module = item
-      else if ('children' in item) {
-        item.children.forEach((block) => {
-          if (block.id === moduleId) module = block
+    let res
+    modules.forEach((module) => {
+      if (module.id === moduleId) res = module
+      else if ('children' in module) {
+        module.children.forEach((subModule) => {
+          if (subModule.id === moduleId) res = subModule
+          else if ('children' in subModule) {
+            subModule.children.forEach((block) => {
+              if (block.id === moduleId) res = block
+            })
+          }
         })
       }
     })
-    module.completed = true
+    res.completed = true
     const result = building.children.every((module) => {
       if ('children' in module) {
-        const res = module.children.every((block) => {
-          return block.completed
+        const resModule = module.children.every((subModule) => {
+          if ('children' in subModule) {
+            const resSubModule = subModule.children.every((block) => {
+              return block.completed
+            })
+            return resSubModule && subModule.completed
+          }
+          return subModule.completed
         })
-        return res && module.completed
+        return resModule && module.completed
       } else {
         return module.completed
       }

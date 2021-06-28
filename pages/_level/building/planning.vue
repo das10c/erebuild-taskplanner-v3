@@ -97,9 +97,29 @@ export default {
       })
       return module
     },
+    findParent(moduleId) {
+      const parent = this.buildings[0]
+      let result
+      parent.children.forEach((child) => {
+        if (child.id === moduleId) {
+          result = parent
+        } else if ('children' in child) {
+          child.children.forEach((grandChild) => {
+            if (grandChild.id === moduleId) result = child
+            else if ('children' in grandChild) {
+              grandChild.children.forEach((item) => {
+                if (item.id === moduleId) result = grandChild
+              })
+            }
+          })
+        }
+      })
+      return result
+    },
     feedPlanningData(item) {
       const goal = this.goals[0]
-      const parent = item.type === 'module' ? goal : this.module(item.id - 1)
+      // const parent = item.type === 'module' ? goal : this.module(item.id - 1)
+      const parent = this.findParent(item.id)
       return {
         title: `Estimating how many ${pluralize(
           item.name
