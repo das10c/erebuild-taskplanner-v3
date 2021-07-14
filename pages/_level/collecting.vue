@@ -63,11 +63,11 @@ export default {
     },
   },
   watch: {
-    // competency(value) {
-    //   if (value === 'beginner') {
-    //     this.resetCollectibles()
-    //   }
-    // },
+    competency(value) {
+      if (value === 'beginner') {
+        this.resetCollectibles()
+      }
+    },
   },
   created() {
     const level = this.$store.state.level
