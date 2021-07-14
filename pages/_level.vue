@@ -41,6 +41,7 @@ export default {
   data: () => ({
     appTitle: 'Task Planner',
     gameLevel: '',
+    userToken: '',
     actions: [],
     taskPlannerEvents: [],
     opened: 0,
@@ -52,9 +53,9 @@ export default {
         link: `/${this.gameLevel}/${action}/`,
       }))
     },
-    userToken() {
-      return this.$store.getters.userToken
-    },
+    // userToken() {
+    //   return this.$store.getters.userToken
+    // },
     competency() {
       return this.$store.getters.competency
     },
@@ -63,18 +64,23 @@ export default {
     },
   },
   beforeCreate() {
-    // const levelStr = this.$route.params.level
-    // if (levelStr) {
-    //   this.$store.commit('setLevel', levelStr)
-    // }
+    const levelStr = this.$route.params.level
+    if (levelStr) {
+      this.$store.commit('setLevel', levelStr)
+    }
+    const userEmail = this.$route.query.email
+    if (userEmail) {
+      this.$store.commit('setUserToken', userEmail)
+    }
   },
   created() {
     const levelStr = this.$route.params.level
-    // const userToken = this.$route.query.email
+    const userToken = this.$route.query.email
     const actions = this.$store.getters['data/planners'](levelStr)
-    this.$store.commit('setLevel', levelStr)
+    // this.$store.commit('setLevel', levelStr)
     // this.$store.commit('setUserToken', userToken)
     this.gameLevel = levelStr
+    this.userToken = userToken
     if (actions.length > 0) this.actions = actions
   },
   beforeMount() {
@@ -111,10 +117,10 @@ export default {
       )
     },
     sendPanelLogs(event) {
-      const userEmail = event.data.user_email
-      // const userEmail = this.$store.getters.userToken
+      // const userEmail = event.data.user_email
+      const userEmail = this.$store.getters.userToken
       const levelName = this.$store.getters.level
-      this.$store.commit('setUserToken', userEmail)
+      // this.$store.commit('setUserToken', userEmail)
       this.getPerformanceData(userEmail, levelName)
 
       if (event.data.status === 'OPEN') {

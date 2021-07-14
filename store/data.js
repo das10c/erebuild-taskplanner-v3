@@ -995,7 +995,7 @@ export const state = () => ({
     {
       id: 15,
       name: 'FarmTile01',
-      actions: ['covering', 'trading'],
+      actions: ['covering'],
     },
     {
       id: 16,
@@ -3371,8 +3371,90 @@ export const state = () => ({
       ],
     },
     { id: 32, name: 'SchoolItems01', actions: ['placing'] },
-    { id: 33, name: 'SchoolPaint01', actions: ['covering', 'trading'] },
-    { id: 34, name: 'SchoolPaint02', actions: ['covering', 'trading'] },
+    {
+      id: 33,
+      name: 'SchoolPaint01',
+      actions: ['covering'],
+      coveringGoals: [
+        {
+          type: 'area',
+          material: 'paint',
+          name: 'basketball court',
+          count: 1,
+          unitArea: 200,
+          paintsNeeded: 20,
+          shape: 'rectangle',
+          properties: {
+            length: 20,
+            width: 10,
+          },
+          measuringUnit: 'm2',
+        },
+      ],
+      coveringMaterial: [
+        {
+          name: 'green paint',
+          count: 30,
+          type: 'paint',
+          unitCoverage: 10,
+          hasHint: false,
+        },
+      ],
+    },
+    {
+      id: 34,
+      name: 'SchoolPaint02',
+      actions: ['covering'],
+      coveringGoals: [
+        {
+          type: 'area',
+          material: 'paint',
+          name: 'court',
+          count: 3,
+          unitArea: 77,
+          paintsNeeded: 8,
+          shape: 'rectangle',
+          properties: {
+            length: 11,
+            width: 7,
+          },
+          measuringUnit: 'm2',
+        },
+        {
+          type: 'area',
+          material: 'paint',
+          name: 'ref area',
+          count: 2,
+          unitArea: 3.14,
+          paintsNeeded: 1,
+          shape: 'rectangle',
+          properties: {
+            diameter: 2,
+          },
+          measuringUnit: 'm2',
+        },
+        {
+          type: 'area',
+          material: 'paint',
+          name: 'court boundary',
+          count: 1,
+          unitArea: 212.72,
+          paintsNeeded: 22,
+          shape: 'irregular',
+          measuringUnit: 'm2',
+        },
+      ],
+      coveringMaterial: [
+        {
+          name: 'green paint',
+          count: 24,
+          type: 'paint',
+          unitCoverage: 10,
+          totalCoverage: 480,
+          hasHint: false,
+        },
+      ],
+    },
     {
       id: 35,
       name: 'SchoolPlacement01',
@@ -3503,8 +3585,33 @@ export const state = () => ({
     { id: 45, name: 'IslandFold03', actions: ['folding'] },
     { id: 46, name: '2DFolding04', actions: ['folding'] },
     { id: 47, name: 'IslandFold04', actions: ['folding'] },
-    { id: 48, name: 'SchoolPaint03', actions: ['covering', 'trading'] },
-    { id: 49, name: 'SchoolPaint04', actions: ['covering', 'trading'] },
+    {
+      id: 48,
+      name: 'SchoolPaint03',
+      actions: ['covering'],
+      coveringGoals: [
+        {
+          type: 'surface area',
+          material: 'paint',
+          target: {
+            name: 'shipping container',
+            properties: {
+              length: 6,
+              width: 3,
+              height: 3,
+            },
+          },
+          measuringUnit: 'm2',
+          value: 72,
+          paintsNeeded: 8,
+        },
+      ],
+    },
+    {
+      id: 49,
+      name: 'SchoolPaint04',
+      actions: ['covering'],
+    },
   ],
 })
 
