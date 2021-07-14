@@ -63,11 +63,11 @@ export default {
     },
   },
   watch: {
-    competency(value) {
-      if (value === 'beginner') {
-        this.resetOccupants()
-      }
-    },
+    // competency(value) {
+    //   if (value === 'beginner') {
+    //     this.resetOccupants()
+    //   }
+    // },
   },
   created() {
     const level = this.$store.state.level
@@ -99,6 +99,9 @@ export default {
     this.$store.commit('allocating/setDwellings', dwellings)
     this.$store.commit('allocating/setTabs', tabs)
     this.setOccupants()
+    if (this.competency === 'beginner') {
+      this.resetOccupants()
+    }
   },
   methods: {
     setOccupants() {

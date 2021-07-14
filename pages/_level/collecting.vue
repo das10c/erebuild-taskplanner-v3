@@ -63,11 +63,11 @@ export default {
     },
   },
   watch: {
-    competency(value) {
-      if (value === 'beginner') {
-        this.resetCollectibles()
-      }
-    },
+    // competency(value) {
+    //   if (value === 'beginner') {
+    //     this.resetCollectibles()
+    //   }
+    // },
   },
   created() {
     const level = this.$store.state.level
@@ -82,6 +82,9 @@ export default {
     this.$store.commit('collecting/setCollectibles', collectibles)
     this.$store.commit('collecting/setTabs', tabs)
     this.setCollectibles()
+    if (this.competency === 'beginner') {
+      this.resetCollectibles()
+    }
   },
   methods: {
     setCollectibles() {
