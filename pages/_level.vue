@@ -77,6 +77,7 @@ export default {
     const levelStr = this.$route.params.level
     const userToken = this.$route.query.email
     const actions = this.$store.getters['data/planners'](levelStr)
+    this.getPerformanceData(userToken, levelStr)
     // this.$store.commit('setLevel', levelStr)
     // this.$store.commit('setUserToken', userToken)
     this.gameLevel = levelStr
@@ -121,7 +122,7 @@ export default {
       const userEmail = this.$store.getters.userToken
       const levelName = this.$store.getters.level
       // this.$store.commit('setUserToken', userEmail)
-      this.getPerformanceData(userEmail, levelName)
+      // this.getPerformanceData(userEmail, levelName)
 
       if (event.data.status === 'OPEN') {
         this.sendOpenLogs(userEmail, levelName)
